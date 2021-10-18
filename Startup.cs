@@ -85,7 +85,7 @@ namespace ProgLibrary.API
             services.Configure<JwtSettings>(Configuration.GetSection("JWT")); // Bindowanie z sekcji konfiguracji JwtConfig - appsetings.json"   
             services.AddControllers()
                 .AddJsonOptions(options => options.JsonSerializerOptions.WriteIndented = true); // poprawa formatowania json
-
+            
             #region PasswordHasher
             //services.Configure<BcryptPasswordHasher>(Configuration.GetSection(BcryptPasswordHasher.Hasher));
             services.AddSingleton<BcryptPasswordHasher>();
@@ -114,13 +114,14 @@ namespace ProgLibrary.API
             {
                 options.RequireHttpsMetadata = false;
                 options.SaveToken = true;
+
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidIssuer = setting.Issuer,
                     ValidateAudience = false,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(setting.SecretKey))
                 };
-
+                
             });
             #region Swagger
             services.AddSwaggerGen(c =>
@@ -167,6 +168,8 @@ namespace ProgLibrary.API
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
+            app.UseCors();
+            app.UseCookiePolicy();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
