@@ -16,7 +16,8 @@ namespace ProgLibrary.API.Controllers
         private IUserService _userService;             
         public AccountController(IUserService userService)
         {
-            _userService = userService;          
+            _userService = userService;
+            
         }
 
         [Authorize(Policy = "HasUserRole")]
@@ -25,12 +26,12 @@ namespace ProgLibrary.API.Controllers
         => Json(await _userService.GetAccountAsync(UserId));
 
         [Authorize(Policy = "HasUserRole")]
-        [HttpGet("UserId")]
+        [HttpGet("UserId/{userId}")]
         public async Task<IActionResult> Get(Guid userId)
         => Json(await _userService.GetAccountAsync(userId));
 
         [Authorize(Policy = "HasUserRole")]
-        [HttpGet("UserEmail")]
+        [HttpGet("UserEmail/{userEmail}")]
         public async Task<IActionResult> Get(string userEmail)
        => Json(await _userService.GetAccountAsync(userEmail));
 
@@ -42,10 +43,11 @@ namespace ProgLibrary.API.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<IActionResult> Register(Register command)
+        public async Task<IActionResult> Register([FromBody]Register command)
         {
-             await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.Name, command.Password, command.Role);           
-            return Created("/account", null);
+    
+             await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.Name, command.Password, command.RoleName);           
+            return Created($"/account/{command.Email}", null);
         }
         
         [AllowAnonymous]

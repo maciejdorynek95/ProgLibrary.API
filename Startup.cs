@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
@@ -14,9 +16,10 @@ using ProgLibrary.Core.Repositories;
 using ProgLibrary.Infrastructure.Mappers;
 using ProgLibrary.Infrastructure.Repositories;
 using ProgLibrary.Infrastructure.Services;
-using ProgLibrary.Infrastructure.Settings.JwtToken;
 using ProgLibrary.Infrastructure.Services.JwtToken;
 using ProgLibrary.Infrastructure.Services.PasswordHashers;
+using ProgLibrary.Infrastructure.Settings.JwtToken;
+using System;
 using System.Text;
 
 namespace ProgLibrary.API
@@ -32,42 +35,62 @@ namespace ProgLibrary.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentityCore<User>(options =>
+            //services.AddIdentityCore<Role>();
+            services.AddIdentity<User, Role>(options =>
+             {
+                
+                 options.User.RequireUniqueEmail = true;
+                 options.Password.RequireDigit = false;
+                 options.Password.RequireNonAlphanumeric = false;
+                 options.Password.RequiredLength = 0;
+                 
+             })
+             
+             .AddEntityFrameworkStores<AuthenticationDbContext>()
+             .AddDefaultTokenProviders()
+             .AddSignInManager();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
             {
-                options.User.RequireUniqueEmail = true;
-                options.Password.RequireDigit = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequiredLength = 0;
-            }).AddEntityFrameworkStores<AuthenticationDbContext>();
-          
+                options.Cookie.Name = "ProgLibrary.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(6000);
+                options.Cookie.IsEssential = true;
+            });
+
+
             #region DBContext
             services.AddDbContext<AuthenticationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("LibraryDBContext"), options => options.MigrationsAssembly("ProgLibrary.Core")));
             services.AddDbContext<LibraryDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("LibraryDBContext"), options => options.MigrationsAssembly("ProgLibrary.Core")));
             #endregion
 
             services.AddSingleton<IMemoryCache, MemoryCache>();
+            services.AddScoped<IdentityUserRole<Guid>>();
             services.AddScoped<IReservationRepository, ReservationRepository>();
             services.AddScoped<IReservationService, ReservationService>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            //services.AddTransient<HttpContext>();
+            services.AddHttpContextAccessor();
             services.AddSingleton(AutoMapperConfig.Initialize()); // zwraca IMapper z AutoMapperConfig
+
             services.AddAuthorization(policies => {
+                
                 policies.AddPolicy("HasAdminRole", role => role.RequireRole("admin"));
-                policies.AddPolicy("HasUserRole", role => role.RequireRole("user"));
+                policies.AddPolicy("HasUserRole", role => role.RequireRole("user"));               
                 }
-            
-            
-            
+                      
             );
-            services.Configure<JwtSettings>(Configuration.GetSection("JWT")); // Bindowanie z sekcji konfiguracji JwtConfig - appsetings.json"
-         
+            services.Configure<JwtSettings>(Configuration.GetSection("JWT")); // Bindowanie z sekcji konfiguracji JwtConfig - appsetings.json"   
             services.AddControllers()
                 .AddJsonOptions(options => options.JsonSerializerOptions.WriteIndented = true); // poprawa formatowania json
-          
+
             #region PasswordHasher
-            services.AddSingleton<IPasswordHasher, BcryptPasswordHasher>();
+            //services.Configure<BcryptPasswordHasher>(Configuration.GetSection(BcryptPasswordHasher.Hasher));
+            services.AddSingleton<BcryptPasswordHasher>();
+            services.AddSingleton<IBcryptPasswordHasherService, BcryptPasswordHasherService>();     
+
             #endregion
 
             #region JWT Token 
@@ -76,6 +99,8 @@ namespace ProgLibrary.API
             JwtSettings setting = new JwtSettings();
             Configuration.Bind("JWT", setting);
             JwtHandler.Settings = setting;
+           
+            
 
             #endregion
 
@@ -141,6 +166,7 @@ namespace ProgLibrary.API
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

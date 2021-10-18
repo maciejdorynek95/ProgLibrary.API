@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.API\\ProgLibrary.API.csproj": {}
+    "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.API\\ProgLibrary.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.API\\ProgLibrary.API.csproj": {
+    "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.API\\ProgLibrary.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.API\\ProgLibrary.API.csproj",
+        "projectUniqueName": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.API\\ProgLibrary.API.csproj",
         "projectName": "ProgLibrary.API",
-        "projectPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.API\\ProgLibrary.API.csproj",
-        "packagesPath": "C:\\Users\\Progfieldadmin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.API\\obj\\",
+        "projectPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.API\\ProgLibrary.API.csproj",
+        "packagesPath": "C:\\Users\\dorynekm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Progfieldadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dorynekm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -34,11 +32,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Core\\ProgLibrary.Core.csproj": {
-                "projectPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Core\\ProgLibrary.Core.csproj"
+              "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Core\\ProgLibrary.Core.csproj": {
+                "projectPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Core\\ProgLibrary.Core.csproj"
               },
-              "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj"
+              "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj"
               }
             }
           }
@@ -71,6 +69,10 @@
               "target": "Package",
               "version": "[5.0.11, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite.Core": {
               "target": "Package",
               "version": "[5.0.11, )"
@@ -92,6 +94,14 @@
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.13.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Core": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -116,28 +126,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Core\\ProgLibrary.Core.csproj": {
+    "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Core\\ProgLibrary.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Core\\ProgLibrary.Core.csproj",
+        "projectUniqueName": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Core\\ProgLibrary.Core.csproj",
         "projectName": "ProgLibrary.Core",
-        "projectPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Core\\ProgLibrary.Core.csproj",
-        "packagesPath": "C:\\Users\\Progfieldadmin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Core\\obj\\",
+        "projectPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Core\\ProgLibrary.Core.csproj",
+        "packagesPath": "C:\\Users\\dorynekm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Progfieldadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dorynekm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -202,28 +210,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj": {
+    "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj",
         "projectName": "ProgLibrary.Infrastructure",
-        "projectPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Progfieldadmin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Infrastructure\\ProgLibrary.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\dorynekm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Progfieldadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dorynekm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -236,8 +242,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Core\\ProgLibrary.Core.csproj": {
-                "projectPath": "C:\\Users\\Progfieldadmin\\source\\repos\\ProgLibrary.Core\\ProgLibrary.Core.csproj"
+              "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Core\\ProgLibrary.Core.csproj": {
+                "projectPath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.Core\\ProgLibrary.Core.csproj"
               }
             }
           }
@@ -259,6 +265,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.2, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.Extensions.Options": {
               "target": "Package",
@@ -288,7 +298,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
