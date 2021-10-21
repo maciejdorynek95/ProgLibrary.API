@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,26 +37,30 @@ namespace ProgLibrary.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddIdentityCore<Role>();
             services.AddIdentity<User, Role>(options =>
              {
-                
+
                  options.User.RequireUniqueEmail = true;
                  options.Password.RequireDigit = false;
                  options.Password.RequireNonAlphanumeric = false;
                  options.Password.RequiredLength = 0;
-                 
+
+
              })
-             
+
              .AddEntityFrameworkStores<AuthenticationDbContext>()
              .AddDefaultTokenProviders()
              .AddSignInManager();
             services.AddDistributedMemoryCache();
+
             services.AddSession(options =>
             {
                 options.Cookie.Name = "ProgLibrary.Session";
-                options.IdleTimeout = TimeSpan.FromSeconds(6000);
+                options.Cookie.SameSite = SameSiteMode.Lax;
+                options.IdleTimeout = TimeSpan.FromSeconds(60);
+                options.IOTimeout = TimeSpan.FromSeconds(60);
                 options.Cookie.IsEssential = true;
+
             });
 
 
@@ -71,37 +77,40 @@ namespace ProgLibrary.API
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
-            //services.AddTransient<HttpContext>();
+            services.AddScoped<AspNetUserManager<User>>();
             services.AddHttpContextAccessor();
             services.AddSingleton(AutoMapperConfig.Initialize()); // zwraca IMapper z AutoMapperConfig
 
-            services.AddAuthorization(policies => {
-                
+
+
+            services.AddAuthorization(policies =>
+            {
+
                 policies.AddPolicy("HasAdminRole", role => role.RequireRole("admin"));
-                policies.AddPolicy("HasUserRole", role => role.RequireRole("user"));               
-                }
-                      
-            );
+                policies.AddPolicy("HasUserRole", role => role.RequireRole("user"));
+                policies.AddPolicy("HasSuperAdminRole", role => role.RequireRole("superadmin"));
+
+                var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
+                    JwtBearerDefaults.AuthenticationScheme);
+                policies.DefaultPolicy = defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser().Build();
+                
+            });
             services.Configure<JwtSettings>(Configuration.GetSection("JWT")); // Bindowanie z sekcji konfiguracji JwtConfig - appsetings.json"   
             services.AddControllers()
                 .AddJsonOptions(options => options.JsonSerializerOptions.WriteIndented = true); // poprawa formatowania json
-            
+
             #region PasswordHasher
             //services.Configure<BcryptPasswordHasher>(Configuration.GetSection(BcryptPasswordHasher.Hasher));
             services.AddSingleton<BcryptPasswordHasher>();
-            services.AddSingleton<IBcryptPasswordHasherService, BcryptPasswordHasherService>();     
+            services.AddSingleton<IBcryptPasswordHasherService, BcryptPasswordHasherService>();
 
             #endregion
 
             #region JWT Token 
             services.AddSingleton<IJwtHandler, JwtHandler>(); //JwtBearer Tokens Handler
-
-            JwtSettings setting = new JwtSettings();
-            Configuration.Bind("JWT", setting);
-            JwtHandler.Settings = setting;
-           
-            
-
+            //JwtSettings setting = new JwtSettings();
+            //Configuration.Bind("JWT", setting);
+            //JwtHandler.Settings = setting;
             #endregion
 
             services.AddAuthentication(options =>
@@ -113,16 +122,35 @@ namespace ProgLibrary.API
             }).AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
-                options.SaveToken = true;
-
+                options.SaveToken = false;
+                options.Audience = Configuration["JWT:Audience"];
+                options.Authority = Configuration["JWT:Authority"];
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidIssuer = setting.Issuer,
-                    ValidateAudience = false,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(setting.SecretKey))
+                    ValidIssuer = Configuration["JWT:Issuer"],
+                    ValidateAudience = true,                   
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:SecretKey"]))
                 };
+            })
+            .AddJwtBearer("Azure", options =>
+             {
+                 options.RequireHttpsMetadata = false;
+                 options.Audience = Configuration["JWT:Audience"];
+                 options.Authority = "https://login.microsoftonline.com/eb971100-6f99-4bdc-8611-1bc8edd7f436/"; //Dodac Guid 
+             })
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.Cookie.Expiration = TimeSpan.FromSeconds(60);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                options.Cookie.SameSite = SameSiteMode.Lax;
                 
             });
+
+
+
             #region Swagger
             services.AddSwaggerGen(c =>
             {
@@ -134,7 +162,7 @@ namespace ProgLibrary.API
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
                     BearerFormat = "JWT",
-                    
+
 
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -163,16 +191,20 @@ namespace ProgLibrary.API
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProgLibrary.API v1"));
-            }  
+            }
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
             app.UseCors();
             app.UseCookiePolicy();
+
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
             });
         }
     }

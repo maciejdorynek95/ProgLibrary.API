@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    
     [Route("[controller]")]
     public class AccountController : ApiControllerBase // 'controller' brany z kontrolera bazowego w ApiControllerBase
     {
@@ -20,7 +20,7 @@ namespace ProgLibrary.API.Controllers
             
         }
 
-        [Authorize(Policy = "HasUserRole")]
+        //[Authorize(Policy = "HasUserRole")]
         [HttpGet("User")]
         public async Task<IActionResult> Get()
         => Json(await _userService.GetAccountAsync(UserId));
@@ -37,17 +37,15 @@ namespace ProgLibrary.API.Controllers
 
         [Authorize(Policy = "HasUserRole")]
         [HttpGet("UserBooks")]
-        public async Task<IActionResult> GetBooks()
-        => throw new NotImplementedException();
-
+        public async Task<IActionResult> GetBooks() //pobiorę z tokenu JWT w sesji.
+        => Json(await _userService.GetUserReservations(UserId));
 
         [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody]Register command)
-        {
-    
-             await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.Name, command.Password, command.RoleName);           
-            return Created($"/account/{command.Email}", null);
+        {    
+             await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.Name, command.Password);           
+            return Created($"/account/{command.Email}", "Utworzono");
         }
         
         [AllowAnonymous]

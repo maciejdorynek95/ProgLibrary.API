@@ -4,35 +4,59 @@ using Microsoft.AspNetCore.Mvc;
 using ProgLibrary.Core.Domain;
 using ProgLibrary.Infrastructure.Commands.Roles;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
 {
-    [Route("[controller]")]  
+    //[Authorize("HasAdminRole")]
+    [Route("[controller]")]
     public class AdministrationController : ApiControllerBase
     {
         private readonly RoleManager<Role> _roleManager;
-       
-        public AdministrationController(RoleManager<Role> roleManager)
+        private UserManager<User> _userManager;
+
+
+        public AdministrationController(RoleManager<Role> roleManager, UserManager<User> userManager)
         {
             _roleManager = roleManager;
+            _userManager = userManager;
         }
 
-        [Authorize("HasAdminRole")]
-        [HttpGet]
-        public async Task<IActionResult> GetRules()
+
+        [HttpGet("[Action]")]
+        public async Task<IActionResult> GetRoles()
         {
-             List<Role> Roles = new List<Role>();
-             Roles = _roleManager.Roles.ToList();
-             return Json(Roles);
+            var roles = await Task.FromResult(_roleManager.Roles.ToArray());
+            return Json(roles);
+        }
+           
+            
+
+
+
+
+
+        [HttpGet("[Action]")]
+        public async Task<IActionResult> AddRoleToUser(AddToUser command)
+        {
+            var role = _roleManager.Roles.Where(r => r.Name == command.roleName).FirstOrDefault();
+            if (role == null)
+            {
+                throw new Exception($"Podana rola o nazwie { command.roleName } nie istenieje");
+            }
+            var user = _userManager.Users.Where(u => u.Email == command.UserEmail).FirstOrDefault();
+            if (user == null)
+            {
+                throw new Exception($"użytkownik o podanym emailu { command.UserEmail } nie istenieje");
+            }
+            IdentityResult identityResult = await _userManager.AddToRoleAsync(user, role.Name);
+            return Json(identityResult);
         }
 
 
 
-        [AllowAnonymous]
+        //[Authorize("HasSuperAdminRole")]
         [HttpPost("CreateRole")]
         public async Task<IActionResult> CreateRole([FromBody] AddRole command)
         {
@@ -47,9 +71,9 @@ namespace ProgLibrary.API.Controllers
         }
 
 
-        [Authorize("HasAdminRole")]
+        [Authorize("HasSuperAdminRole")]
         [HttpDelete("DeleteRole")]
-        public async Task<IActionResult> DeleteRole([FromBody] Role command)
+        public async Task<IActionResult> DeleteRole([FromBody] DeleteRole command)
         {
             if (!await _roleManager.RoleExistsAsync(command.Name))
             {
