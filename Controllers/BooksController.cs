@@ -41,9 +41,9 @@ namespace ProgLibrary.API.Controllers
         [Authorize(Policy = "HasAdminRole")]
         public async Task<IActionResult> Create([FromBody]CreateBook command)
         {
-            command.Id = Guid.NewGuid();
-            await _bookService.CreateAsync(command.Id, command.Title, command.Author, command.ReleaseDate, command.Description);
-            return Created($"/books/{command.Id}", null);
+            var Id = Guid.NewGuid();
+            await _bookService.CreateAsync(Id, command.Title, command.Author, command.ReleaseDate, command.Description);
+            return Created($"/books/{Id}", null);
         }
 
         [Authorize(Policy = "HasAdminRole")]

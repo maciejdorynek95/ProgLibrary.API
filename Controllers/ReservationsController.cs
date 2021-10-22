@@ -10,7 +10,7 @@ namespace ProgLibrary.API.Controllers
     [ApiController]
     public class ReservationsController : Controller
     {
-        private readonly IReservationService _reservationService;
+        private  IReservationService _reservationService;
 
         public ReservationsController(IReservationService reservationService)
         {
@@ -19,16 +19,16 @@ namespace ProgLibrary.API.Controllers
 
         // GET: api/Reservations
         [HttpGet]
-        public async Task<IActionResult> GetReservations(string bookTitle)
+        public async Task<IActionResult> GetReservations(string userEmail)
         {
-            return Json(await _reservationService.BrowseAsync(bookTitle));
+            return Json(await _reservationService.BrowseAsync(userEmail));
         }
 
         [HttpPost]
         public async Task<IActionResult> Create ([FromBody]CreateReservation command)
         {
-             await _reservationService.CreateAsync(Guid.NewGuid(), command.UserId, command.BookId, command.ReservationTimeFrom, command.ReservationTimeTo, DateTime.UtcNow);
-            return Json("ninc", null);
+             await _reservationService.CreateAsync(Guid.NewGuid(), command.UserId, command.BookId, command.ReservationTimeFrom, command.ReservationTimeTo);
+            return Json("Rezerwacja dokonana", null);
         }
 
     }

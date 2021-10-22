@@ -14,8 +14,16 @@ namespace ProgLibrary.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseUrls("http://localhost:5000", "http://localhost:44336");
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://localhost:5000","http://192.168.1.8:5000", "http://192.168.1.8:44336");
+                    webBuilder.ConfigureKestrel(options =>
+                    {
+                       
+                        options.ConfigureHttpsDefaults(option => {
+                            option.SslProtocols = System.Security.Authentication.SslProtocols.Tls13;
+                        }
+                        );
+                    });
                 });
        
     }

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -198,7 +197,8 @@ namespace ProgLibrary.API
             app.UseSession();
             app.UseCors();
             app.UseCookiePolicy();
-
+            app.UseHttpsRedirection();
+            app.UseHsts();
 
 
             app.UseEndpoints(endpoints =>
