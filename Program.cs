@@ -14,15 +14,23 @@ namespace ProgLibrary.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("http://localhost:5000", "http://localhost:44336");
+                    webBuilder.UseUrls("https://localhost:5000", "https://localhost:44336");
                     webBuilder.UseStartup<Startup>();
                     webBuilder.ConfigureKestrel(options =>
                     {
-                       
+
                         options.ConfigureHttpsDefaults(option => {
-                            option.SslProtocols = System.Security.Authentication.SslProtocols.Tls13;
-                        }
-                        );
+                            //option.SslProtocols = System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Tls;
+                            //option.AllowAnyClientCertificate();
+
+
+                        });
+                        options.ConfigureEndpointDefaults(option =>
+                        {
+                            //option.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http1AndHttp2;
+                            //option.UseHttps();
+                        });
+                        
                     });
                 });
        

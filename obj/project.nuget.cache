@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oYAMEZ6iJ94rnGswjEEFHkcqSTmQ8sBWfDIgUB/W2FymEijN5D61p/LvDb/v90qTbsz5h9f6vb9l68cX/yQ6VA==",
+  "dgSpecHash": "pum6PJWm88ZKTsYHcVA/A98LvynKKzsOantvwvAd3EfCKgtdVfHiS2gBaR0Zos/ObXKTmXW+qS/gtyUPDevZVw==",
   "success": true,
   "projectFilePath": "C:\\Users\\dorynekm\\Source\\Repos\\maciejdorynek95\\ProgLibrary.API\\ProgLibrary.API.csproj",
   "expectedPackageFiles": [
@@ -66,6 +66,7 @@
     "C:\\Users\\dorynekm\\.nuget\\packages\\microsoft.extensions.dependencymodel\\5.0.0\\microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",
     "C:\\Users\\dorynekm\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\2.2.0\\microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\dorynekm\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\2.2.0\\microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\dorynekm\\.nuget\\packages\\microsoft.extensions.http\\5.0.0\\microsoft.extensions.http.5.0.0.nupkg.sha512",
     "C:\\Users\\dorynekm\\.nuget\\packages\\microsoft.extensions.identity.core\\5.0.11\\microsoft.extensions.identity.core.5.0.11.nupkg.sha512",
     "C:\\Users\\dorynekm\\.nuget\\packages\\microsoft.extensions.identity.stores\\5.0.11\\microsoft.extensions.identity.stores.5.0.11.nupkg.sha512",
     "C:\\Users\\dorynekm\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",

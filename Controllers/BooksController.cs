@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [Route("[controller]")]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Route("api/[controller]")]
     public class BooksController : Controller
     {
         private readonly IBookService _bookService;
@@ -42,8 +42,8 @@ namespace ProgLibrary.API.Controllers
         public async Task<IActionResult> Create([FromBody]CreateBook command)
         {
             var Id = Guid.NewGuid();
-            await _bookService.CreateAsync(Id, command.Title, command.Author, command.ReleaseDate, command.Description);
-            return Created($"/books/{Id}", null);
+            var result = await Task.FromResult( _bookService.CreateAsync(Id, command.Title, command.Author, command.ReleaseDate, command.Description));
+            return Json(result);
         }
 
         [Authorize(Policy = "HasAdminRole")]

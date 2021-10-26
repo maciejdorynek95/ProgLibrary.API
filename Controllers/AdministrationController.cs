@@ -31,11 +31,6 @@ namespace ProgLibrary.API.Controllers
             return Json(roles);
         }
            
-            
-
-
-
-
 
         [HttpGet("[Action]")]
         public async Task<IActionResult> AddRoleToUser(AddToUser command)
@@ -53,8 +48,6 @@ namespace ProgLibrary.API.Controllers
             IdentityResult identityResult = await _userManager.AddToRoleAsync(user, role.Name);
             return Json(identityResult);
         }
-
-
 
         //[Authorize("HasSuperAdminRole")]
         [HttpPost("CreateRole")]

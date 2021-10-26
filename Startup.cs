@@ -48,17 +48,17 @@ namespace ProgLibrary.API
              })
 
              .AddEntityFrameworkStores<AuthenticationDbContext>()
-             .AddDefaultTokenProviders()
-             .AddSignInManager();
+             .AddDefaultTokenProviders();
+             //.AddSignInManager<User>();
             services.AddDistributedMemoryCache();
 
             services.AddSession(options =>
             {
-                options.Cookie.Name = "ProgLibrary.Session";
+                options.Cookie.Name = "ProgLibraryAPI.Session";
                 options.Cookie.SameSite = SameSiteMode.Lax;
                 options.IdleTimeout = TimeSpan.FromSeconds(60);
                 options.IOTimeout = TimeSpan.FromSeconds(60);
-                options.Cookie.IsEssential = true;
+                //options.Cookie.IsEssential = true;
 
             });
 
@@ -107,6 +107,7 @@ namespace ProgLibrary.API
 
             #region JWT Token 
             services.AddSingleton<IJwtHandler, JwtHandler>(); //JwtBearer Tokens Handler
+
             //JwtSettings setting = new JwtSettings();
             //Configuration.Bind("JWT", setting);
             //JwtHandler.Settings = setting;
@@ -127,7 +128,7 @@ namespace ProgLibrary.API
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidIssuer = Configuration["JWT:Issuer"],
-                    ValidateAudience = true,                   
+                    ValidateAudience = false,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:SecretKey"]))
                 };
             })
@@ -136,17 +137,17 @@ namespace ProgLibrary.API
                  options.RequireHttpsMetadata = false;
                  options.Audience = Configuration["JWT:Audience"];
                  options.Authority = "https://login.microsoftonline.com/eb971100-6f99-4bdc-8611-1bc8edd7f436/"; //Dodac Guid 
-             })
-            .AddCookie(options =>
-            {
-                options.LoginPath = "/Account/Login";
-                options.LogoutPath = "/Account/Logout";
-                options.Cookie.Expiration = TimeSpan.FromSeconds(60);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-                options.Cookie.SameSite = SameSiteMode.Lax;
+             });
+            //.AddCookie(options =>
+            //{
+            //    options.LoginPath = "/Account/Login";
+            //    options.LogoutPath = "/Account/Logout";
+            //    options.Cookie.Expiration = TimeSpan.FromSeconds(60);
+            //    options.Cookie.HttpOnly = true;
+            //    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+            //    options.Cookie.SameSite = SameSiteMode.Lax;
                 
-            });
+            //});
 
 
 
@@ -196,9 +197,10 @@ namespace ProgLibrary.API
             app.UseAuthorization();
             app.UseSession();
             app.UseCors();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();
             app.UseHttpsRedirection();
-            app.UseHsts();
+            
+            //app.UseHsts();
 
 
             app.UseEndpoints(endpoints =>

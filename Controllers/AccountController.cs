@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProgLibrary.Infrastructure.Commands;
 using ProgLibrary.Infrastructure.Commands.User;
@@ -9,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
 {
-    
-    [Route("[controller]")]
+    [ApiController]
+    [Route("api/[controller]")]
     public class AccountController : ApiControllerBase // 'controller' brany z kontrolera bazowego w ApiControllerBase
     {
         private IUserService _userService;             
@@ -49,10 +50,14 @@ namespace ProgLibrary.API.Controllers
         }
         
         [AllowAnonymous]
-        [HttpGet("login")]
-        public async Task<IActionResult> Login(Login command)       
-            => Json(await _userService.LoginAsync(command.Email, command.Password));
-            
+        
+        [HttpPost("login")]
+        public async Task<JsonResult> Login([FromBody]Login command)
+        {
+            var json = Json(await _userService.LoginAsync(command.Email, command.Password));
+            return json;
+        }
+        
         
     }
    
