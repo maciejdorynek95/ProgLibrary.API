@@ -50,20 +50,18 @@ namespace ProgLibrary.API.Controllers
         [HttpPut("Update/{bookId}")]
         public async Task<IActionResult> Update (Guid bookId,[FromBody]UpdateBook command)
         {
-            await _bookService.UpdateAsync(bookId, command.Title, command.Author, command.ReleaseDate, command.Description);
-
-            //204
-            return Json(command);
+            var result = await Task.FromResult( _bookService.UpdateAsync(bookId, command.Title, command.Author, command.ReleaseDate, command.Description));
+            return Json(result);
         }
 
         [HttpDelete("Delete/{bookId}")]
         [Authorize(Policy = "HasAdminRole")]
         public async Task<IActionResult> Delete(Guid bookId)
         {
-            await _bookService.DeleteAsync(bookId);
+            var result = await Task.FromResult( _bookService.DeleteAsync(bookId));
 
             //204
-            return NoContent();
+            return Json(result);
             
                  
             
