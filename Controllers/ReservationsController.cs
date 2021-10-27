@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ReservationsController : Controller
     {
         private  IReservationService _reservationService;
@@ -19,13 +19,13 @@ namespace ProgLibrary.API.Controllers
 
         // GET: api/Reservations
         [HttpGet]
-        public async Task<IActionResult> GetReservations(string userEmail)
+        public async Task<JsonResult> GetReservations(string userEmail)
         {
             return Json(await _reservationService.BrowseAsync(userEmail));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create ([FromBody]CreateReservation command)
+        public async Task<JsonResult> Create ([FromBody]CreateReservation command)
         {
              await _reservationService.CreateAsync(Guid.NewGuid(), command.UserId, command.BookId, command.ReservationTimeFrom, command.ReservationTimeTo);
             return Json("Rezerwacja dokonana", null);

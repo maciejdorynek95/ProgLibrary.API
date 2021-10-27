@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
 {
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [ApiController]
     [Route("api/[controller]")]
     public class BooksController : Controller
     {
@@ -18,19 +18,19 @@ namespace ProgLibrary.API.Controllers
             _bookService = eventService;
         }
         [AllowAnonymous]
-        [HttpGet("Get/{bookId}")]
-        public async Task<IActionResult> Get(Guid bookId)
+        [HttpPost("Get/{bookId}")]
+        public async Task<JsonResult> Get([FromBody]Guid bookId)
         {
             var books = await _bookService.GetAsync(bookId);
             if (books == null)
             {
-                return NotFound();
+                return Json(new Exception("Brak książki"));
             }
             return Json(books);
         }
         [AllowAnonymous]
-        [HttpGet("Get")]
-        public async Task<IActionResult> Get(string title)
+        [HttpPost("Get")] 
+        public async Task<JsonResult> Get([FromBody]string title)
         {
             var books = await _bookService.BrowseAsync(title);
             return Json(books);
@@ -39,7 +39,7 @@ namespace ProgLibrary.API.Controllers
         
         [HttpPost("Create")]
         [Authorize(Policy = "HasAdminRole")]
-        public async Task<IActionResult> Create([FromBody]CreateBook command)
+        public async Task<JsonResult> Create([FromBody]CreateBook command)
         {
             var Id = Guid.NewGuid();
             var result = await Task.FromResult( _bookService.CreateAsync(Id, command.Title, command.Author, command.ReleaseDate, command.Description));
@@ -48,7 +48,7 @@ namespace ProgLibrary.API.Controllers
 
         [Authorize(Policy = "HasAdminRole")]
         [HttpPut("Update/{bookId}")]
-        public async Task<IActionResult> Update (Guid bookId,[FromBody]UpdateBook command)
+        public async Task<JsonResult> Update (Guid bookId,[FromBody]UpdateBook command)
         {
             var result = await Task.FromResult( _bookService.UpdateAsync(bookId, command.Title, command.Author, command.ReleaseDate, command.Description));
             return Json(result);
@@ -56,7 +56,7 @@ namespace ProgLibrary.API.Controllers
 
         [HttpDelete("Delete/{bookId}")]
         [Authorize(Policy = "HasAdminRole")]
-        public async Task<IActionResult> Delete(Guid bookId)
+        public async Task<JsonResult> Delete(Guid bookId)
         {
             var result = await Task.FromResult( _bookService.DeleteAsync(bookId));
 

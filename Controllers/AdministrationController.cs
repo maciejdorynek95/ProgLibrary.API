@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
 {
-    //[Authorize("HasAdminRole")]
-    [Route("[controller]")]
+    [ApiController]
+    [Route("api/[controller]")]
+
     public class AdministrationController : ApiControllerBase
     {
         private readonly RoleManager<Role> _roleManager;
@@ -25,7 +26,7 @@ namespace ProgLibrary.API.Controllers
 
 
         [HttpGet("[Action]")]
-        public async Task<IActionResult> GetRoles()
+        public async Task<JsonResult> GetRoles()
         {
             var roles = await Task.FromResult(_roleManager.Roles.ToArray());
             return Json(roles);
@@ -33,7 +34,7 @@ namespace ProgLibrary.API.Controllers
            
 
         [HttpGet("[Action]")]
-        public async Task<IActionResult> AddRoleToUser(AddToUser command)
+        public async Task<JsonResult> AddRoleToUser(AddToUser command)
         {
             var role = _roleManager.Roles.Where(r => r.Name == command.roleName).FirstOrDefault();
             if (role == null)
@@ -51,7 +52,7 @@ namespace ProgLibrary.API.Controllers
 
         //[Authorize("HasSuperAdminRole")]
         [HttpPost("CreateRole")]
-        public async Task<IActionResult> CreateRole([FromBody] AddRole command)
+        public async Task<JsonResult> CreateRole([FromBody] AddRole command)
         {
             if (await _roleManager.RoleExistsAsync(command.Name))
             {
@@ -66,7 +67,7 @@ namespace ProgLibrary.API.Controllers
 
         [Authorize("HasSuperAdminRole")]
         [HttpDelete("DeleteRole")]
-        public async Task<IActionResult> DeleteRole([FromBody] DeleteRole command)
+        public async Task<JsonResult> DeleteRole([FromBody] DeleteRole command)
         {
             if (!await _roleManager.RoleExistsAsync(command.Name))
             {

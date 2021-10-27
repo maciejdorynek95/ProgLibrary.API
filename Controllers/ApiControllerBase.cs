@@ -3,7 +3,7 @@ using System;
 
 namespace ProgLibrary.API.Controllers
 {
-    [Route("[controller]")]
+
     public class ApiControllerBase : Controller
     {
         protected Guid UserId => User?.Identity?.IsAuthenticated == true ?

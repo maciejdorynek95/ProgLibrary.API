@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pum6PJWm88ZKTsYHcVA/A98LvynKKzsOantvwvAd3EfCKgtdVfHiS2gBaR0Zos/ObXKTmXW+qS/gtyUPDevZVw==",
+  "dgSpecHash": "1j/3nJNdcya84ny5L3eMlym5MvvyHwWoOBIUGMfLSnveSPkN/skc1k44qAnTYRDg6bDXnMn1GUMHPaQpItXXcg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dorynekm\\Source\\Repos\\maciejdorynek95\\ProgLibrary.API\\ProgLibrary.API.csproj",
+  "projectFilePath": "C:\\Users\\dorynekm\\source\\repos\\maciejdorynek95\\ProgLibrary.API\\ProgLibrary.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dorynekm\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\dorynekm\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
