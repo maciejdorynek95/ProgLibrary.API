@@ -33,7 +33,6 @@ namespace ProgLibrary.API
         }
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentity<User, Role>(options =>
@@ -49,7 +48,6 @@ namespace ProgLibrary.API
 
              .AddEntityFrameworkStores<AuthenticationDbContext>()
              .AddDefaultTokenProviders();
-             //.AddSignInManager<User>();
             services.AddDistributedMemoryCache();
 
             services.AddSession(options =>
@@ -58,7 +56,6 @@ namespace ProgLibrary.API
                 options.Cookie.SameSite = SameSiteMode.Lax;
                 options.IdleTimeout = TimeSpan.FromSeconds(60);
                 options.IOTimeout = TimeSpan.FromSeconds(60);
-                //options.Cookie.IsEssential = true;
 
             });
 
@@ -106,11 +103,8 @@ namespace ProgLibrary.API
             #endregion
 
             #region JWT Token 
-            services.AddSingleton<IJwtHandler, JwtHandler>(); //JwtBearer Tokens Handler
+            services.AddSingleton<IJwtHandler, JwtHandler>();
 
-            //JwtSettings setting = new JwtSettings();
-            //Configuration.Bind("JWT", setting);
-            //JwtHandler.Settings = setting;
             #endregion
 
             services.AddAuthentication(options =>
@@ -138,16 +132,6 @@ namespace ProgLibrary.API
                  options.Audience = Configuration["JWT:Audience"];
                  options.Authority = "https://login.microsoftonline.com/eb971100-6f99-4bdc-8611-1bc8edd7f436/"; //Dodac Guid 
              });
-            //.AddCookie(options =>
-            //{
-            //    options.LoginPath = "/Account/Login";
-            //    options.LogoutPath = "/Account/Logout";
-            //    options.Cookie.Expiration = TimeSpan.FromSeconds(60);
-            //    options.Cookie.HttpOnly = true;
-            //    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-            //    options.Cookie.SameSite = SameSiteMode.Lax;
-                
-            //});
 
 
 
@@ -198,11 +182,8 @@ namespace ProgLibrary.API
             app.UseSession();
             app.UseCors();
             //app.UseCookiePolicy();
-            app.UseHttpsRedirection();
-            
             //app.UseHsts();
-
-
+            app.UseHttpsRedirection();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

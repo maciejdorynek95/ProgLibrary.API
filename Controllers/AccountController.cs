@@ -20,31 +20,31 @@ namespace ProgLibrary.API.Controllers
         }
 
         //[Authorize(Policy = "HasUserRole")]
-        [HttpGet("User")]
-        public async Task<IActionResult> Get()
+        [HttpPost("User")]
+        public async Task<JsonResult> Get()
         => Json(await _userService.GetAccountAsync(UserId));
 
         [Authorize(Policy = "HasUserRole")]
-        [HttpGet("UserId/{userId}")]
-        public async Task<IActionResult> Get(Guid userId)
+        [HttpPost("GetById")]
+        public async Task<JsonResult> Get(Guid userId)
         => Json(await _userService.GetAccountAsync(userId));
 
         [Authorize(Policy = "HasUserRole")]
-        [HttpGet("UserEmail/{userEmail}")]
-        public async Task<IActionResult> Get(string userEmail)
+        [HttpPost("GetByEmail")]
+        public async Task<JsonResult> Get([FromBody] string userEmail)
        => Json(await _userService.GetAccountAsync(userEmail));
 
         [Authorize(Policy = "HasUserRole")]
-        [HttpGet("UserBooks")]
-        public async Task<IActionResult> GetBooks() //pobiorę z tokenu JWT w sesji.
+        [HttpPost("UserBooks")]
+        public async Task<JsonResult> GetBooks() //pobiorę z tokenu JWT w sesji.
         => Json(await _userService.GetUserReservations(UserId));
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody]Register command)
+        public async Task<JsonResult> Register([FromBody]Register command)
         {    
              await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.Name, command.Password);           
-            return Created($"/account/{command.Email}", "Utworzono");
+            return Json(Created($"/Account/{command.Email}", "Utworzono"));
         }
         
         [AllowAnonymous]

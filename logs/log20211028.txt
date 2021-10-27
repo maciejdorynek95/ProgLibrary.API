@@ -1,0 +1,203 @@
+2021-10-28 00:17:42.438 +02:00 [INF] Staring Api
+2021-10-28 00:17:45.049 +02:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-28 00:17:45.598 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-28 00:17:45.599 +02:00 [INF] Hosting environment: Development
+2021-10-28 00:17:45.599 +02:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-28 00:17:45.684 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-28 00:17:45.825 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 146.3420ms
+2021-10-28 00:17:45.921 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-28 00:17:46.236 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 314.2726ms
+2021-10-28 00:17:46.481 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-28 00:17:46.521 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-28 00:17:46.549 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-28 00:17:46.572 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-28 00:17:46.572 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-28 00:17:46.572 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-28 00:17:46.580 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 98.7379ms
+2021-10-28 00:17:46.588 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 38.7195ms
+2021-10-28 00:17:46.616 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 102.6629ms
+2021-10-28 00:17:49.372 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-28 00:17:49.580 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 208.1680ms
+2021-10-28 00:19:33.311 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44336/api/Account/login application/json 74
+2021-10-28 00:19:33.551 +02:00 [INF] No CORS policy found for the specified request.
+2021-10-28 00:19:33.552 +02:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-28 00:19:33.618 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-28 00:19:37.933 +02:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-28 00:19:38.631 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 2
+2021-10-28 00:19:38.857 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-28 00:19:38.888 +02:00 [INF] Dane Logowania Poprawne
+2021-10-28 00:19:38.895 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-28 00:19:39.093 +02:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-10-28 00:19:39.112 +02:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 5485.8581ms
+2021-10-28 00:19:39.113 +02:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-28 00:19:39.119 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44336/api/Account/login application/json 74 - 200 - application/json;+charset=utf-8 5807.9413ms
+2021-10-28 00:19:51.620 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44336/api/Account/User - 0
+2021-10-28 00:19:51.724 +02:00 [INF] Successfully validated the token.
+2021-10-28 00:19:51.726 +02:00 [INF] No CORS policy found for the specified request.
+2021-10-28 00:19:51.726 +02:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API)'
+2021-10-28 00:19:51.734 +02:00 [INF] Route matched with {action = "Get", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get() on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-28 00:19:51.775 +02:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-28 00:19:51.783 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__id_0
+LIMIT 2
+2021-10-28 00:19:51.788 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-28 00:19:51.790 +02:00 [INF] GetAccountAsyncmaciejd : 
+2021-10-28 00:19:51.812 +02:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.AccountDetailsDto'.
+2021-10-28 00:19:51.819 +02:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API) in 84.398ms
+2021-10-28 00:19:51.819 +02:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API)'
+2021-10-28 00:19:51.824 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44336/api/Account/User - 0 - 200 - application/json;+charset=utf-8 203.2838ms
+2021-10-28 00:20:00.683 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44336/api/Account/GetById?userId=2b916bb2-78c7-429e-a73d-a1cb9f1fb7db - 0
+2021-10-28 00:20:00.688 +02:00 [INF] Successfully validated the token.
+2021-10-28 00:20:00.712 +02:00 [INF] Authorization was successful.
+2021-10-28 00:20:00.713 +02:00 [INF] No CORS policy found for the specified request.
+2021-10-28 00:20:00.713 +02:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API)'
+2021-10-28 00:20:00.721 +02:00 [INF] Route matched with {action = "Get", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.Guid) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-28 00:20:05.583 +02:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-28 00:20:05.596 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__id_0
+LIMIT 2
+2021-10-28 00:20:09.000 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-28 00:20:23.470 +02:00 [INF] GetAccountAsyncmaciejd : 
+2021-10-28 00:20:26.801 +02:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.AccountDetailsDto'.
+2021-10-28 00:20:28.728 +02:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API) in 28005.9795ms
+2021-10-28 00:20:28.728 +02:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API)'
+2021-10-28 00:20:28.729 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44336/api/Account/GetById?userId=2b916bb2-78c7-429e-a73d-a1cb9f1fb7db - 0 - 200 - application/json;+charset=utf-8 28045.3666ms
+2021-10-28 00:22:36.869 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44336/api/Account/GetById?userId=2b916bb2-78c7-429e-a73d-a1cb9f1fbfff - 0
+2021-10-28 00:22:36.869 +02:00 [INF] Successfully validated the token.
+2021-10-28 00:22:36.870 +02:00 [INF] Authorization was successful.
+2021-10-28 00:22:36.870 +02:00 [INF] No CORS policy found for the specified request.
+2021-10-28 00:22:36.871 +02:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API)'
+2021-10-28 00:22:36.871 +02:00 [INF] Route matched with {action = "Get", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.Guid) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-28 00:22:38.863 +02:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-28 00:22:38.866 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__id_0
+LIMIT 2
+2021-10-28 00:22:39.189 +02:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API) in 2318.0988ms
+2021-10-28 00:22:39.195 +02:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API)'
+2021-10-28 00:22:39.207 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: użytkownik o id 2b916bb2-78c7-429e-a73d-a1cb9f1fbfff nie istenieje
+   at ProgLibrary.Infrastructure.Repositories.UserRepository.GetAsync(Guid id)
+   at ProgLibrary.Infrastructure.Services.UserService.GetAccountAsync(Guid userId)
+   at ProgLibrary.API.Controllers.AccountController.Get(Guid userId) in C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\Controllers\AccountController.cs:line 30
+   at lambda_method147(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-28 00:22:39.301 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44336/api/Account/GetById?userId=2b916bb2-78c7-429e-a73d-a1cb9f1fbfff - 0 - 500 - text/plain 2432.2912ms
+2021-10-28 00:22:58.398 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44336/api/Account/UserBooks - 0
+2021-10-28 00:22:58.399 +02:00 [INF] Successfully validated the token.
+2021-10-28 00:22:58.401 +02:00 [INF] Authorization was successful.
+2021-10-28 00:22:58.402 +02:00 [INF] No CORS policy found for the specified request.
+2021-10-28 00:22:58.402 +02:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.GetBooks (ProgLibrary.API)'
+2021-10-28 00:22:58.407 +02:00 [INF] Route matched with {action = "GetBooks", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] GetBooks() on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-28 00:23:01.582 +02:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-28 00:23:01.592 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:01.644 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.ReservationDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-28 00:23:01.661 +02:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.GetBooks (ProgLibrary.API) in 3253.3548ms
+2021-10-28 00:23:01.661 +02:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.GetBooks (ProgLibrary.API)'
+2021-10-28 00:23:01.663 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44336/api/Account/UserBooks - 0 - 200 - application/json;+charset=utf-8 3264.8709ms
+2021-10-28 00:23:11.837 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44336/api/Administration/GetRoles - -
+2021-10-28 00:23:11.844 +02:00 [INF] Successfully validated the token.
+2021-10-28 00:23:11.844 +02:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AdministrationController.GetRoles (ProgLibrary.API)'
+2021-10-28 00:23:11.852 +02:00 [INF] Route matched with {action = "GetRoles", controller = "Administration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] GetRoles() on controller ProgLibrary.API.Controllers.AdministrationController (ProgLibrary.API).
+2021-10-28 00:23:11.854 +02:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-28 00:23:11.861 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+2021-10-28 00:23:11.888 +02:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Core.Domain.Role[]'.
+2021-10-28 00:23:11.892 +02:00 [INF] Executed action ProgLibrary.API.Controllers.AdministrationController.GetRoles (ProgLibrary.API) in 40.449ms
+2021-10-28 00:23:11.892 +02:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AdministrationController.GetRoles (ProgLibrary.API)'
+2021-10-28 00:23:11.901 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44336/api/Administration/GetRoles - - - 200 - application/json;+charset=utf-8 64.4286ms
+2021-10-28 00:23:26.853 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44336/api/Books/Get application/json 8
+2021-10-28 00:23:26.853 +02:00 [INF] Successfully validated the token.
+2021-10-28 00:23:26.858 +02:00 [INF] No CORS policy found for the specified request.
+2021-10-28 00:23:26.858 +02:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-28 00:23:26.866 +02:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.String) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-28 00:23:26.883 +02:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-28 00:23:26.891 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2021-10-28 00:23:26.907 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.BookDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-28 00:23:26.908 +02:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 41.495ms
+2021-10-28 00:23:26.909 +02:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-28 00:23:26.910 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44336/api/Books/Get application/json 8 - 200 - application/json;+charset=utf-8 57.5088ms
+2021-10-28 00:23:30.458 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44336/api/Books/Get application/json 2
+2021-10-28 00:23:30.461 +02:00 [INF] Successfully validated the token.
+2021-10-28 00:23:30.461 +02:00 [INF] No CORS policy found for the specified request.
+2021-10-28 00:23:30.461 +02:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-28 00:23:30.462 +02:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.String) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-28 00:23:30.477 +02:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-28 00:23:30.480 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2021-10-28 00:23:30.483 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:30.502 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:30.504 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:30.505 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:30.506 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:30.506 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:30.507 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:30.507 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-28 00:23:30.509 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.BookDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-28 00:23:30.516 +02:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 54.4484ms
+2021-10-28 00:23:30.516 +02:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-28 00:23:30.518 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44336/api/Books/Get application/json 2 - 200 - application/json;+charset=utf-8 60.1972ms
