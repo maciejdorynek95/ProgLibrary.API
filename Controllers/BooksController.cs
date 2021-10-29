@@ -17,8 +17,9 @@ namespace ProgLibrary.API.Controllers
         {
             _bookService = eventService;
         }
-        [AllowAnonymous]
-        [HttpPost("Get/{bookId}")]
+        
+        [HttpGet("{bookId}")]
+        [Authorize(Policy = "HasUserRole")]
         public async Task<JsonResult> Get([FromBody]Guid bookId)
         {
             var books = await _bookService.GetAsync(bookId);
@@ -28,8 +29,9 @@ namespace ProgLibrary.API.Controllers
             }
             return Json(books);
         }
-        [AllowAnonymous]
-        [HttpPost("Get")] 
+        
+        [HttpGet("{title}")]
+        [Authorize(Policy = "HasUserRole")]
         public async Task<JsonResult> Get([FromBody]string title)
         {
             var books = await _bookService.BrowseAsync(title);
@@ -38,7 +40,7 @@ namespace ProgLibrary.API.Controllers
 
         
         [HttpPost("Create")]
-        [Authorize(Policy = "HasAdminRole")]
+        [Authorize(Policy = "HasUserRole")]
         public async Task<JsonResult> Create([FromBody]CreateBook command)
         {
             var Id = Guid.NewGuid();
@@ -46,15 +48,16 @@ namespace ProgLibrary.API.Controllers
             return Json(result);
         }
 
+       
+        [HttpPut("{command}")]
         [Authorize(Policy = "HasAdminRole")]
-        [HttpPut("Update/{bookId}")]
         public async Task<JsonResult> Update (Guid bookId,[FromBody]UpdateBook command)
         {
             var result = await Task.FromResult( _bookService.UpdateAsync(bookId, command.Title, command.Author, command.ReleaseDate, command.Description));
             return Json(result);
         }
 
-        [HttpDelete("Delete/{bookId}")]
+        [HttpDelete("{bookId}")]
         [Authorize(Policy = "HasAdminRole")]
         public async Task<JsonResult> Delete(Guid bookId)
         {

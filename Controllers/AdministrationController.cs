@@ -25,16 +25,16 @@ namespace ProgLibrary.API.Controllers
         }
 
 
-        [HttpGet("[Action]")]
+        [HttpGet]
+        [Authorize("HasAdminRole")]
         public async Task<JsonResult> GetRoles()
         {
             var roles = await Task.FromResult(_roleManager.Roles.ToArray());
             return Json(roles);
         }
-           
-
-        [HttpGet("[Action]")]
-        public async Task<JsonResult> AddRoleToUser(AddToUser command)
+        [HttpPost("{command}")]
+        [Authorize("HasSuperAdminRole")]     
+        public async Task<JsonResult> AddRoleToUser([FromBody]AddToUser command)
         {
             var role = _roleManager.Roles.Where(r => r.Name == command.roleName).FirstOrDefault();
             if (role == null)
@@ -50,8 +50,8 @@ namespace ProgLibrary.API.Controllers
             return Json(identityResult);
         }
 
-        //[Authorize("HasSuperAdminRole")]
-        [HttpPost("CreateRole")]
+        [Authorize("HasSuperAdminRole")]
+        [HttpPost("{command}")]
         public async Task<JsonResult> CreateRole([FromBody] AddRole command)
         {
             if (await _roleManager.RoleExistsAsync(command.Name))
@@ -66,7 +66,7 @@ namespace ProgLibrary.API.Controllers
 
 
         [Authorize("HasSuperAdminRole")]
-        [HttpDelete("DeleteRole")]
+        [HttpDelete("{command}")]
         public async Task<JsonResult> DeleteRole([FromBody] DeleteRole command)
         {
             if (!await _roleManager.RoleExistsAsync(command.Name))

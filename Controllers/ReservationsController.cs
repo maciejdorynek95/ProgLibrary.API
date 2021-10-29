@@ -17,14 +17,14 @@ namespace ProgLibrary.API.Controllers
             _reservationService = reservationService;
         }
 
-        // GET: api/Reservations
-        [HttpGet]
-        public async Task<JsonResult> GetReservations(string userEmail)
+
+        [HttpGet("{userEmail}")]
+        public async Task<JsonResult> GetReservations([FromBody] string userEmail)
         {
             return Json(await _reservationService.BrowseAsync(userEmail));
         }
 
-        [HttpPost]
+        [HttpGet("{command}")]
         public async Task<JsonResult> Create ([FromBody]CreateReservation command)
         {
              await _reservationService.CreateAsync(Guid.NewGuid(), command.UserId, command.BookId, command.ReservationTimeFrom, command.ReservationTimeTo);

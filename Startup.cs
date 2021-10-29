@@ -86,8 +86,7 @@ namespace ProgLibrary.API
                 policies.AddPolicy("HasUserRole", role => role.RequireRole("user"));
                 policies.AddPolicy("HasSuperAdminRole", role => role.RequireRole("superadmin"));
 
-                var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
-                    JwtBearerDefaults.AuthenticationScheme);
+                var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme);
                 policies.DefaultPolicy = defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser().Build();
                 
             });
@@ -125,13 +124,8 @@ namespace ProgLibrary.API
                     ValidateAudience = false,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:SecretKey"]))
                 };
-            })
-            .AddJwtBearer("Azure", options =>
-             {
-                 options.RequireHttpsMetadata = false;
-                 options.Audience = Configuration["JWT:Audience"];
-                 options.Authority = "https://login.microsoftonline.com/eb971100-6f99-4bdc-8611-1bc8edd7f436/"; //Dodac Guid 
-             });
+            });
+
 
 
 
