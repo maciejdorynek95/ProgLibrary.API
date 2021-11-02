@@ -177,11 +177,12 @@ namespace ProgLibrary.API
             app.UseCors();
             //app.UseCookiePolicy();
             //app.UseHsts();
+            
             app.UseHttpsRedirection();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-
+       
             });
         }
     }

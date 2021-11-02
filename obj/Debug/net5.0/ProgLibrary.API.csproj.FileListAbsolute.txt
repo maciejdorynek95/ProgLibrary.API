@@ -258,3 +258,13 @@ C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\
 C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\Serilog.Sinks.Console.dll
 C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
 C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\Serilog.Sinks.File.dll
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\ProgLibrary.API.Views.dll
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\ProgLibrary.API.Views.pdb
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.RazorAssemblyInfo.cache
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.RazorAssemblyInfo.cs
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.TagHelpers.input.cache
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.TagHelpers.output.cache
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.RazorCoreGenerate.cache
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.RazorTargetAssemblyInfo.cs
+C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.Views.pdb

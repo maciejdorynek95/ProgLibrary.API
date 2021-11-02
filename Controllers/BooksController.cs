@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProgLibrary.Infrastructure.Commands.Books;
+using ProgLibrary.Infrastructure.Exceptions;
 using ProgLibrary.Infrastructure.Services;
 using System;
 using System.Threading.Tasks;
@@ -17,10 +17,10 @@ namespace ProgLibrary.API.Controllers
         {
             _bookService = eventService;
         }
-        
-        [HttpGet("{bookId}")]
+
+        [HttpGet("Get/{bookId}")]
         [Authorize(Policy = "HasUserRole")]
-        public async Task<JsonResult> Get([FromBody]Guid bookId)
+        public async Task<JsonResult> Get(Guid bookId)
         {
             var books = await _bookService.GetAsync(bookId);
             if (books == null)
@@ -29,45 +29,53 @@ namespace ProgLibrary.API.Controllers
             }
             return Json(books);
         }
-        
-        [HttpGet("{title}")]
+
+
+        [HttpGet("Get")]
         [Authorize(Policy = "HasUserRole")]
-        public async Task<JsonResult> Get([FromBody]string title)
+        public async Task<JsonResult> Get(string title)
         {
             var books = await _bookService.BrowseAsync(title);
             return Json(books);
         }
 
-        
+
         [HttpPost("Create")]
         [Authorize(Policy = "HasUserRole")]
-        public async Task<JsonResult> Create([FromBody]CreateBook command)
+        public async Task<JsonResult> Create([FromBody] CreateBook command)
         {
-            var Id = Guid.NewGuid();
-            var result = await Task.FromResult( _bookService.CreateAsync(Id, command.Title, command.Author, command.ReleaseDate, command.Description));
+            var result = await Task.FromResult( _bookService.CreateAsync(Guid.NewGuid(), command.Title, command.Author, command.ReleaseDate, command.Description));
+            if (result.Result > 0 )
+            {
+                return Json($"Utworzono pomyślnie książkę ");
+            }
+            return Json(result, null);
+        }
+
+
+
+        [HttpPut("Update/{id}")]
+        [Authorize(Policy = "HasAdminRole")]
+        public async Task<JsonResult> Update(Guid id, [FromBody] UpdateBook command)
+        {
+            var result = await Task.FromResult(_bookService.UpdateAsync(id, command.Title, command.Author, command.ReleaseDate, command.Description));
             return Json(result);
         }
 
-       
-        [HttpPut("{command}")]
-        [Authorize(Policy = "HasAdminRole")]
-        public async Task<JsonResult> Update (Guid bookId,[FromBody]UpdateBook command)
-        {
-            var result = await Task.FromResult( _bookService.UpdateAsync(bookId, command.Title, command.Author, command.ReleaseDate, command.Description));
-            return Json(result);
-        }
+
+
 
         [HttpDelete("{bookId}")]
         [Authorize(Policy = "HasAdminRole")]
         public async Task<JsonResult> Delete(Guid bookId)
         {
-            var result = await Task.FromResult( _bookService.DeleteAsync(bookId));
+            var result = await Task.FromResult(_bookService.DeleteAsync(bookId));
 
             //204
             return Json(result);
-            
-                 
-            
+
+
+
         }
     }
 }

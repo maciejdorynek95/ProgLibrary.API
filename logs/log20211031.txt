@@ -1,0 +1,846 @@
+2021-10-31 10:56:06.579 +01:00 [INF] Staring Api
+2021-10-31 10:56:11.027 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 10:56:11.444 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 10:56:11.444 +01:00 [INF] Hosting environment: Development
+2021-10-31 10:56:11.444 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 10:56:11.527 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 10:56:11.652 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 10:56:11.658 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 135.3616ms
+2021-10-31 10:56:11.870 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 218.1186ms
+2021-10-31 10:56:12.365 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 10:56:12.408 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 10:56:12.436 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 10:56:12.436 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 10:56:12.441 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 75.6227ms
+2021-10-31 10:56:12.468 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 60.4957ms
+2021-10-31 10:56:12.514 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 10:56:12.522 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 10:56:12.534 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 19.8650ms
+2021-10-31 10:56:13.626 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 10:56:13.812 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 186.0137ms
+2021-10-31 10:58:49.587 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 -
+2021-10-31 10:58:49.747 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 10:58:49.803 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-31 10:58:50.950 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 10:58:51.460 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-10-31 10:58:51.739 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 10:58:51.784 +01:00 [INF] Dane Logowania Poprawne
+2021-10-31 10:58:51.792 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 10:58:52.017 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-10-31 10:58:52.033 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 2222.4607ms
+2021-10-31 10:58:52.033 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 10:58:52.041 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2454.1786ms
+2021-10-31 11:00:06.936 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 -
+2021-10-31 11:00:07.031 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:07.034 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 11:00:07.035 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-31 11:00:07.067 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:07.071 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-10-31 11:00:07.077 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 11:00:07.090 +01:00 [INF] Dane Logowania Poprawne
+2021-10-31 11:00:07.092 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 11:00:07.095 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-10-31 11:00:07.096 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 60.5352ms
+2021-10-31 11:00:07.096 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 11:00:07.098 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 162.1093ms
+2021-10-31 11:00:08.489 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get - -
+2021-10-31 11:00:08.493 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:08.509 +01:00 [INF] Authorization was successful.
+2021-10-31 11:00:08.510 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:08.516 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.String) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:00:08.567 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:08.578 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2021-10-31 11:00:08.606 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.607 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.608 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.609 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.610 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.610 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.611 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.611 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.611 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.611 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:08.613 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.BookDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-31 11:00:08.627 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 110.1899ms
+2021-10-31 11:00:08.627 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:08.629 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get - - - 200 - application/json;+charset=utf-8 139.8938ms
+2021-10-31 11:00:10.917 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - -
+2021-10-31 11:00:10.919 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:10.920 +01:00 [INF] Authorization was successful.
+2021-10-31 11:00:10.920 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:10.924 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.Guid) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:00:10.929 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:10.937 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:00:10.949 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:10.953 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:10.955 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.BookDetailsDto'.
+2021-10-31 11:00:10.960 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 36.2279ms
+2021-10-31 11:00:10.961 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:10.964 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - - - 200 - application/json;+charset=utf-8 45.6300ms
+2021-10-31 11:00:21.537 +01:00 [INF] Request starting HTTP/1.1 PUT https://localhost:44336/api/Books/Update/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 application/json;+charset=utf-8 -
+2021-10-31 11:00:21.538 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:21.539 +01:00 [INF] Authorization was successful.
+2021-10-31 11:00:21.539 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API)'
+2021-10-31 11:00:21.549 +01:00 [INF] Route matched with {action = "Update", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Update(System.Guid, ProgLibrary.Infrastructure.Commands.Books.UpdateBook) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:00:21.563 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:21.565 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:00:21.685 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p5='?', @p0='?' (Size = 15), @p1='?' (Size = 9), @p2='?', @p3='?' (Size = 11), @p4='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Books" SET "Author" = @p0, "Description" = @p1, "ReleaseDate" = @p2, "Title" = @p3, "UpdatedAt" = @p4
+WHERE "Id" = @p5;
+SELECT changes();
+2021-10-31 11:00:21.709 +01:00 [INF] Executing JsonResult, writing value of type 'System.Threading.Tasks.Task`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2021-10-31 11:00:21.738 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API) in 189.2856ms
+2021-10-31 11:00:21.739 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API)'
+2021-10-31 11:00:21.753 +01:00 [INF] Request finished HTTP/1.1 PUT https://localhost:44336/api/Books/Update/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 216.1103ms
+2021-10-31 11:00:21.768 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - -
+2021-10-31 11:00:21.769 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:21.769 +01:00 [INF] Authorization was successful.
+2021-10-31 11:00:21.769 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:21.769 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.Guid) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:00:21.770 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:21.772 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:00:21.776 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:21.780 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:21.782 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.BookDetailsDto'.
+2021-10-31 11:00:21.782 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 12.9572ms
+2021-10-31 11:00:21.782 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:21.783 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - - - 200 - application/json;+charset=utf-8 15.2073ms
+2021-10-31 11:00:35.331 +01:00 [INF] Request starting HTTP/1.1 PUT https://localhost:44336/api/Books/Update/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 application/json;+charset=utf-8 -
+2021-10-31 11:00:35.331 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:35.331 +01:00 [INF] Authorization was successful.
+2021-10-31 11:00:35.332 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API)'
+2021-10-31 11:00:35.332 +01:00 [INF] Route matched with {action = "Update", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Update(System.Guid, ProgLibrary.Infrastructure.Commands.Books.UpdateBook) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:00:35.333 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:35.339 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:00:35.344 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p5='?', @p0='?' (Size = 15), @p1='?' (Size = 9), @p2='?', @p3='?' (Size = 11), @p4='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Books" SET "Author" = @p0, "Description" = @p1, "ReleaseDate" = @p2, "Title" = @p3, "UpdatedAt" = @p4
+WHERE "Id" = @p5;
+SELECT changes();
+2021-10-31 11:00:35.354 +01:00 [INF] Executing JsonResult, writing value of type 'System.Threading.Tasks.Task`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2021-10-31 11:00:35.355 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API) in 23.4448ms
+2021-10-31 11:00:35.356 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API)'
+2021-10-31 11:00:35.357 +01:00 [INF] Request finished HTTP/1.1 PUT https://localhost:44336/api/Books/Update/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 26.0572ms
+2021-10-31 11:00:35.376 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - -
+2021-10-31 11:00:35.377 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:35.377 +01:00 [INF] Authorization was successful.
+2021-10-31 11:00:35.378 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:35.378 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.Guid) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:00:35.379 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:35.382 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:00:35.388 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:35.391 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:35.393 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.BookDetailsDto'.
+2021-10-31 11:00:35.393 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 15.2525ms
+2021-10-31 11:00:35.393 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:35.395 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - - - 200 - application/json;+charset=utf-8 18.5068ms
+2021-10-31 11:00:40.204 +01:00 [INF] Request starting HTTP/1.1 PUT https://localhost:44336/api/Books/Update/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 application/json;+charset=utf-8 -
+2021-10-31 11:00:40.205 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:40.205 +01:00 [INF] Authorization was successful.
+2021-10-31 11:00:40.206 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API)'
+2021-10-31 11:00:40.206 +01:00 [INF] Route matched with {action = "Update", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Update(System.Guid, ProgLibrary.Infrastructure.Commands.Books.UpdateBook) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:00:40.207 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:40.210 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:00:40.215 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p5='?', @p0='?' (Size = 15), @p1='?' (Size = 11), @p2='?', @p3='?' (Size = 11), @p4='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Books" SET "Author" = @p0, "Description" = @p1, "ReleaseDate" = @p2, "Title" = @p3, "UpdatedAt" = @p4
+WHERE "Id" = @p5;
+SELECT changes();
+2021-10-31 11:00:40.222 +01:00 [INF] Executing JsonResult, writing value of type 'System.Threading.Tasks.Task`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2021-10-31 11:00:40.223 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API) in 16.5064ms
+2021-10-31 11:00:40.223 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API)'
+2021-10-31 11:00:40.223 +01:00 [INF] Request finished HTTP/1.1 PUT https://localhost:44336/api/Books/Update/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 19.7203ms
+2021-10-31 11:00:40.246 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - -
+2021-10-31 11:00:40.246 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:00:40.246 +01:00 [INF] Authorization was successful.
+2021-10-31 11:00:40.247 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:40.247 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.Guid) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:00:40.248 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:00:40.252 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:00:40.257 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:40.261 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:00:40.263 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.BookDetailsDto'.
+2021-10-31 11:00:40.263 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 16.2174ms
+2021-10-31 11:00:40.263 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:00:40.265 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - - - 200 - application/json;+charset=utf-8 18.8717ms
+2021-10-31 11:01:13.735 +01:00 [INF] Request starting HTTP/1.1 PUT https://localhost:44336/api/Books/Update/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 application/json;+charset=utf-8 -
+2021-10-31 11:01:13.740 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:01:13.740 +01:00 [INF] Authorization was successful.
+2021-10-31 11:01:13.740 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API)'
+2021-10-31 11:01:13.741 +01:00 [INF] Route matched with {action = "Update", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Update(System.Guid, ProgLibrary.Infrastructure.Commands.Books.UpdateBook) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:01:13.742 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:01:13.744 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:01:13.748 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@p5='?', @p0='?' (Size = 15), @p1='?' (Size = 11), @p2='?', @p3='?' (Size = 11), @p4='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Books" SET "Author" = @p0, "Description" = @p1, "ReleaseDate" = @p2, "Title" = @p3, "UpdatedAt" = @p4
+WHERE "Id" = @p5;
+SELECT changes();
+2021-10-31 11:01:13.755 +01:00 [INF] Executing JsonResult, writing value of type 'System.Threading.Tasks.Task`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2021-10-31 11:01:13.756 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API) in 15.0983ms
+2021-10-31 11:01:13.756 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Update (ProgLibrary.API)'
+2021-10-31 11:01:13.757 +01:00 [INF] Request finished HTTP/1.1 PUT https://localhost:44336/api/Books/Update/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 21.5500ms
+2021-10-31 11:01:13.774 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - -
+2021-10-31 11:01:13.775 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:01:13.775 +01:00 [INF] Authorization was successful.
+2021-10-31 11:01:13.776 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:01:13.776 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.Guid) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:01:13.777 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:01:13.779 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__id_0
+LIMIT 2
+2021-10-31 11:01:13.784 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:01:13.788 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:01:13.790 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.BookDetailsDto'.
+2021-10-31 11:01:13.791 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 14.7732ms
+2021-10-31 11:01:13.791 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:01:13.793 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get/a5f7e6ca-3715-4101-a9f0-3e107cbbc972 - - - 200 - application/json;+charset=utf-8 18.0735ms
+2021-10-31 11:15:00.110 +01:00 [INF] Staring Api
+2021-10-31 11:15:02.843 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:16:21.388 +01:00 [INF] Staring Api
+2021-10-31 11:16:24.151 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:17:09.530 +01:00 [INF] Staring Api
+2021-10-31 11:17:12.019 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:17:12.535 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:17:12.536 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:17:12.536 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:17:12.651 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:17:12.812 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:17:12.822 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 176.4718ms
+2021-10-31 11:17:13.015 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 202.9370ms
+2021-10-31 11:17:13.080 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:17:13.122 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:17:13.155 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:17:13.168 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:17:13.168 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:17:13.168 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:17:13.175 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 94.9819ms
+2021-10-31 11:17:13.182 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 27.3740ms
+2021-10-31 11:17:13.205 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 83.1058ms
+2021-10-31 11:17:14.513 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:17:14.625 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:17:14.678 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 165.2180ms
+2021-10-31 11:17:39.493 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 -
+2021-10-31 11:17:39.677 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 11:17:39.728 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-31 11:17:40.838 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:17:41.331 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-10-31 11:17:41.558 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 11:17:41.590 +01:00 [INF] Dane Logowania Poprawne
+2021-10-31 11:17:41.595 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 11:17:41.782 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-10-31 11:17:41.800 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 2064.1415ms
+2021-10-31 11:17:41.800 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 11:17:41.808 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2314.9444ms
+2021-10-31 11:18:42.675 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get - -
+2021-10-31 11:18:42.794 +01:00 [INF] Successfully validated the token.
+2021-10-31 11:18:42.809 +01:00 [INF] Authorization was successful.
+2021-10-31 11:18:42.810 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:18:42.814 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.String) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 11:18:42.885 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 11:18:42.892 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2021-10-31 11:18:42.920 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.921 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.922 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.923 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.924 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.924 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.925 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.925 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.926 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.926 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 11:18:42.928 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.BookDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-31 11:18:42.941 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 126.6342ms
+2021-10-31 11:18:42.941 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 11:18:42.942 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get - - - 200 - application/json;+charset=utf-8 267.5730ms
+2021-10-31 11:19:33.919 +01:00 [INF] Staring Api
+2021-10-31 11:19:36.395 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:19:36.928 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:19:36.929 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:19:36.929 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:19:37.026 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:19:37.188 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:19:37.194 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 171.0258ms
+2021-10-31 11:19:37.443 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 254.1903ms
+2021-10-31 11:19:37.497 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:19:37.523 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:19:37.561 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:19:37.561 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:19:37.572 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 75.5194ms
+2021-10-31 11:19:37.607 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 84.0436ms
+2021-10-31 11:19:37.636 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:19:37.641 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:19:37.650 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 14.8254ms
+2021-10-31 11:19:39.132 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:19:39.236 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:19:39.306 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 173.9000ms
+2021-10-31 11:22:16.486 +01:00 [INF] Staring Api
+2021-10-31 11:22:19.819 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:22:20.309 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:22:20.310 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:22:20.310 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:22:20.383 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:22:20.483 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 103.4255ms
+2021-10-31 11:22:20.506 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:22:20.716 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 209.6098ms
+2021-10-31 11:22:20.767 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:22:20.792 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:22:20.828 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:22:20.828 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:22:20.836 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 69.2253ms
+2021-10-31 11:22:20.868 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 75.6205ms
+2021-10-31 11:22:20.883 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:22:20.888 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:22:20.901 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 17.3050ms
+2021-10-31 11:22:22.059 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:22:22.264 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:22:22.349 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 290.1858ms
+2021-10-31 11:23:41.237 +01:00 [INF] Staring Api
+2021-10-31 11:23:43.385 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:23:43.763 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:23:43.764 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:23:43.764 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:23:43.868 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:23:44.051 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 190.2174ms
+2021-10-31 11:23:44.067 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:23:44.290 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 223.8552ms
+2021-10-31 11:23:44.348 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:23:44.378 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:23:44.419 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:23:44.419 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:23:44.438 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 89.9266ms
+2021-10-31 11:23:44.471 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 92.7534ms
+2021-10-31 11:23:44.480 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:23:44.486 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:23:44.496 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 16.0411ms
+2021-10-31 11:23:45.901 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:23:46.007 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:23:46.062 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 160.6867ms
+2021-10-31 11:30:55.298 +01:00 [INF] Staring Api
+2021-10-31 11:30:57.898 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:30:58.394 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:30:58.394 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:30:58.394 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:30:58.509 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:30:58.639 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:30:58.644 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 147.8522ms
+2021-10-31 11:30:58.838 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 198.7324ms
+2021-10-31 11:30:58.925 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:30:58.925 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:30:58.925 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:30:58.997 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:30:58.998 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:30:58.998 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:30:59.008 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 82.5724ms
+2021-10-31 11:30:59.036 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 110.1610ms
+2021-10-31 11:30:59.076 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 150.6263ms
+2021-10-31 11:31:00.039 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:31:00.224 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:31:00.309 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 270.1789ms
+2021-10-31 11:33:12.242 +01:00 [INF] Staring Api
+2021-10-31 11:33:15.134 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:33:16.005 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:33:16.005 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:33:16.005 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:33:16.106 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:33:16.282 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:33:16.290 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 192.0664ms
+2021-10-31 11:33:16.494 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 211.5016ms
+2021-10-31 11:33:16.626 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:33:16.628 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:33:16.628 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:33:16.749 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:33:16.749 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:33:16.759 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:33:16.772 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 143.5267ms
+2021-10-31 11:33:16.801 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 172.5978ms
+2021-10-31 11:33:16.846 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 219.1733ms
+2021-10-31 11:33:18.089 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:33:18.301 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:33:18.436 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 346.8505ms
+2021-10-31 11:36:30.958 +01:00 [INF] Staring Api
+2021-10-31 11:36:33.172 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:36:33.596 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:36:33.597 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:36:33.597 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:36:33.678 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:36:33.786 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:36:33.789 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 114.2280ms
+2021-10-31 11:36:34.077 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 290.9092ms
+2021-10-31 11:36:34.145 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:36:34.145 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:36:34.145 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:36:34.222 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:36:34.222 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:36:34.222 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:36:34.230 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 85.1995ms
+2021-10-31 11:36:34.257 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 111.2322ms
+2021-10-31 11:36:34.278 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 133.0211ms
+2021-10-31 11:36:35.023 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:36:35.208 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:36:35.298 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 274.3638ms
+2021-10-31 11:44:11.135 +01:00 [INF] Staring Api
+2021-10-31 11:44:15.152 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:44:15.581 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:44:15.582 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:44:15.582 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:44:15.670 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:44:15.774 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:44:15.781 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 115.8128ms
+2021-10-31 11:44:15.941 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 167.5861ms
+2021-10-31 11:44:15.997 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:44:15.997 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:44:16.002 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:44:16.068 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:44:16.068 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:44:16.068 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:44:16.077 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 82.4049ms
+2021-10-31 11:44:16.101 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 103.6956ms
+2021-10-31 11:44:16.172 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 177.5739ms
+2021-10-31 11:44:17.398 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:44:17.629 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:44:17.732 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 334.8813ms
+2021-10-31 11:48:16.526 +01:00 [INF] Staring Api
+2021-10-31 11:48:19.117 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:48:19.863 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:48:19.865 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:48:19.865 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:48:19.949 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:48:20.097 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 154.2933ms
+2021-10-31 11:48:20.112 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:48:20.352 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 239.6535ms
+2021-10-31 11:48:20.431 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:48:20.433 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:48:20.441 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:48:20.514 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:48:20.514 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:48:20.514 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:48:20.521 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 88.2589ms
+2021-10-31 11:48:20.526 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 84.5118ms
+2021-10-31 11:48:20.607 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 175.6186ms
+2021-10-31 11:48:21.562 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:48:21.908 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:48:22.025 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 462.9672ms
+2021-10-31 11:50:23.513 +01:00 [INF] Staring Api
+2021-10-31 11:50:25.965 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:50:26.412 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:50:26.412 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:50:26.412 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:50:26.493 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:50:26.592 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:50:26.597 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 106.9582ms
+2021-10-31 11:50:26.820 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 227.5706ms
+2021-10-31 11:50:26.879 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:50:26.879 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:50:26.879 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:50:26.948 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:50:26.948 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:50:26.948 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:50:26.970 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 89.4007ms
+2021-10-31 11:50:26.994 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 114.9618ms
+2021-10-31 11:50:27.017 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 138.0738ms
+2021-10-31 11:50:28.184 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:50:28.492 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-31 11:50:28.598 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 500 - text/plain 413.6282ms
+2021-10-31 11:50:52.456 +01:00 [INF] Staring Api
+2021-10-31 11:50:55.522 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 11:50:55.943 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 11:50:55.943 +01:00 [INF] Hosting environment: Development
+2021-10-31 11:50:55.944 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 11:50:56.017 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 11:50:56.134 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 11:50:56.138 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 123.1845ms
+2021-10-31 11:50:56.400 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 265.5726ms
+2021-10-31 11:50:56.498 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 11:50:56.515 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 11:50:56.515 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 11:50:56.613 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 11:50:56.613 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 11:50:56.648 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 149.2386ms
+2021-10-31 11:50:56.648 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 11:50:56.693 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 177.8114ms
+2021-10-31 11:50:56.709 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 194.0961ms
+2021-10-31 11:50:57.708 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 11:50:57.918 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 209.4736ms
+2021-10-31 16:19:39.923 +01:00 [INF] Staring Api
+2021-10-31 16:19:41.613 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 16:19:41.924 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 16:19:41.924 +01:00 [INF] Hosting environment: Development
+2021-10-31 16:19:41.925 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 16:19:42.253 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 16:19:42.547 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 364.9005ms
+2021-10-31 16:19:42.664 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 16:19:43.216 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 551.3144ms
+2021-10-31 16:19:43.321 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 16:19:43.333 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 16:19:43.347 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 16:19:43.462 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 16:19:43.462 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 16:19:43.463 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 16:19:43.477 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 155.5582ms
+2021-10-31 16:19:43.484 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 136.4621ms
+2021-10-31 16:19:43.580 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 246.9829ms
+2021-10-31 16:19:45.941 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 16:19:46.222 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 282.7377ms
+2021-10-31 16:22:48.123 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 -
+2021-10-31 16:22:48.307 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 16:22:48.354 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-31 16:22:49.506 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 16:22:50.066 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-10-31 16:22:50.311 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 16:22:50.341 +01:00 [INF] Dane Logowania Poprawne
+2021-10-31 16:22:50.349 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 16:22:50.557 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-10-31 16:22:50.575 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 2212.9189ms
+2021-10-31 16:22:50.576 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 16:22:50.587 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2463.9544ms
+2021-10-31 16:22:51.875 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get - -
+2021-10-31 16:22:51.975 +01:00 [INF] Successfully validated the token.
+2021-10-31 16:22:51.990 +01:00 [INF] Authorization was successful.
+2021-10-31 16:22:51.991 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 16:22:51.996 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.String) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-10-31 16:22:52.070 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 16:22:52.079 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2021-10-31 16:22:52.111 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.112 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.113 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.114 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.115 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.115 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.117 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.118 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.118 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.119 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-10-31 16:22:52.120 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.BookDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-31 16:22:52.134 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 137.871ms
+2021-10-31 16:22:52.134 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-10-31 16:22:52.136 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get - - - 200 - application/json;+charset=utf-8 260.3041ms
+2021-10-31 16:22:52.961 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - -
+2021-10-31 16:22:52.966 +01:00 [INF] Successfully validated the token.
+2021-10-31 16:22:52.967 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-10-31 16:22:52.971 +01:00 [INF] Route matched with {action = "GetReservations", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] GetReservations(System.String) on controller ProgLibrary.API.Controllers.ReservationsController (ProgLibrary.API).
+2021-10-31 16:22:52.984 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 16:22:53.009 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+INNER JOIN "AspNetUsers" AS "a" ON "r"."UserId" = "a"."Id"
+WHERE "a"."Email" IS NULL
+2021-10-31 16:22:53.010 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.ReservationDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-31 16:22:53.012 +01:00 [INF] Executed action ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API) in 40.0154ms
+2021-10-31 16:22:53.012 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-10-31 16:22:53.013 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - - - 200 - application/json;+charset=utf-8 51.1955ms
+2021-10-31 16:28:39.013 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - -
+2021-10-31 16:28:39.019 +01:00 [INF] Successfully validated the token.
+2021-10-31 16:28:39.019 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-10-31 16:28:39.020 +01:00 [INF] Route matched with {action = "GetReservations", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] GetReservations(System.String) on controller ProgLibrary.API.Controllers.ReservationsController (ProgLibrary.API).
+2021-10-31 16:28:56.154 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 16:29:05.967 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+INNER JOIN "AspNetUsers" AS "a" ON "r"."UserId" = "a"."Id"
+WHERE "a"."Email" IS NULL
+2021-10-31 16:29:09.140 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+INNER JOIN "AspNetUsers" AS "a" ON "r"."UserId" = "a"."Id"
+WHERE "a"."Email" IS NULL
+2021-10-31 16:29:10.681 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.ReservationDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-31 16:29:10.681 +01:00 [INF] Executed action ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API) in 31585.6922ms
+2021-10-31 16:29:10.681 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-10-31 16:29:10.685 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - - - 200 - application/json;+charset=utf-8 31597.1034ms
+2021-10-31 16:30:12.915 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - -
+2021-10-31 16:30:12.916 +01:00 [INF] Successfully validated the token.
+2021-10-31 16:30:12.916 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-10-31 16:30:12.916 +01:00 [INF] Route matched with {action = "GetReservations", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] GetReservations(System.String) on controller ProgLibrary.API.Controllers.ReservationsController (ProgLibrary.API).
+2021-10-31 16:30:17.099 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 16:30:23.066 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+INNER JOIN "AspNetUsers" AS "a" ON "r"."UserId" = "a"."Id"
+WHERE "a"."Email" IS NULL
+2021-10-31 16:30:38.250 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.ReservationDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-31 16:30:38.251 +01:00 [INF] Executed action ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API) in 25334.4506ms
+2021-10-31 16:30:38.252 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-10-31 16:30:38.258 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - - - 200 - application/json;+charset=utf-8 25342.7060ms
+2021-10-31 16:35:19.689 +01:00 [INF] Staring Api
+2021-10-31 16:35:22.320 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-31 16:35:22.814 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-31 16:35:22.815 +01:00 [INF] Hosting environment: Development
+2021-10-31 16:35:22.815 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-10-31 16:35:22.894 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-10-31 16:35:23.001 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-10-31 16:35:23.007 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 117.0878ms
+2021-10-31 16:35:23.155 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 154.2851ms
+2021-10-31 16:35:23.245 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-10-31 16:35:23.254 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-10-31 16:35:23.255 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-10-31 16:35:23.325 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-10-31 16:35:23.325 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-10-31 16:35:23.325 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-10-31 16:35:23.340 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 86.2655ms
+2021-10-31 16:35:23.341 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 86.0655ms
+2021-10-31 16:35:23.362 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 117.3838ms
+2021-10-31 16:35:24.636 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-10-31 16:35:24.986 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 350.2658ms
+2021-10-31 16:35:42.468 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 -
+2021-10-31 16:35:42.623 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 16:35:42.679 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-10-31 16:35:43.842 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 16:35:44.345 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-10-31 16:35:44.590 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 16:35:44.619 +01:00 [INF] Dane Logowania Poprawne
+2021-10-31 16:35:44.626 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-10-31 16:35:44.834 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-10-31 16:35:44.853 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 2165.8753ms
+2021-10-31 16:35:44.854 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-10-31 16:35:44.863 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2394.4599ms
+2021-10-31 16:35:52.515 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - -
+2021-10-31 16:35:52.619 +01:00 [INF] Successfully validated the token.
+2021-10-31 16:35:52.621 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-10-31 16:35:52.627 +01:00 [INF] Route matched with {action = "GetReservations", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] GetReservations(System.String) on controller ProgLibrary.API.Controllers.ReservationsController (ProgLibrary.API).
+2021-10-31 16:35:54.060 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-10-31 16:35:54.110 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+INNER JOIN "AspNetUsers" AS "a" ON "r"."UserId" = "a"."Id"
+WHERE "a"."Email" IS NULL
+2021-10-31 16:35:56.136 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.ReservationDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-31 16:35:56.139 +01:00 [INF] Executed action ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API) in 3512.6542ms
+2021-10-31 16:35:56.140 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-10-31 16:35:56.141 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - - - 200 - application/json;+charset=utf-8 3626.1556ms

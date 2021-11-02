@@ -11,50 +11,55 @@ namespace ProgLibrary.API.Controllers
     [Route("api/[controller]")]
     public class AccountController : ApiControllerBase
     {
-        private IUserService _userService;             
+        private IUserService _userService;
         public AccountController(IUserService userService)
         {
-            _userService = userService;          
+            _userService = userService;
         }
 
-        [Authorize(Policy = "HasUserRole")]
+        [Authorize("HasUserRole")]
         [HttpGet("User")]
         public async Task<JsonResult> Get()
         => Json(await _userService.GetAccountAsync(UserId));
 
-        [Authorize(Policy = "HasUserRole")]
+        [Authorize("HasAdminRole")]
+        [HttpGet("Browse")]
+        public async Task<JsonResult> Browse()
+        => Json(await _userService.BrowseAsync("user"));
+
+        [Authorize("HasUserRole")]
         [HttpGet("GetById")]
-        public async Task<JsonResult> Get([FromBody]Guid userId)
+        public async Task<JsonResult> Get(Guid userId)
         => Json(await _userService.GetAccountAsync(userId));
 
-        [Authorize(Policy = "HasUserRole")]
+        [Authorize("HasUserRole")]
         [HttpGet("GetByEmail")]
-        public async Task<JsonResult> Get([FromBody] string userEmail)
-       => Json(await _userService.GetAccountAsync(userEmail));
+        public async Task<JsonResult> Get(string userEmail)
+        => Json(await _userService.GetAccountAsync(userEmail));
 
-        [Authorize(Policy = "HasUserRole")]
-        [HttpGet("UserBooks")]
+        [Authorize("HasUserRole")]
+        [HttpGet("GetBooks")]
         public async Task<JsonResult> GetBooks()
         => Json(await _userService.GetUserReservations(UserId));
 
         [AllowAnonymous]
         [HttpPost("Register")]
-        public async Task<JsonResult> Register([FromBody]Register command)
-        {    
-             await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.UserName, command.Password);           
+        public async Task<JsonResult> Register([FromBody] Register command)
+        {
+            await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.UserName, command.Password);
             return Json(Created($"/Account/{command.Email}", "Utworzono"));
         }
-        
-        [AllowAnonymous]       
-        [HttpPost("login")]
-        public async Task<JsonResult> Login([FromBody]Login command)
+
+        [AllowAnonymous]
+        [HttpPost("Login")]
+        public async Task<JsonResult> Login([FromBody] Login command)
         {
             var user = await _userService.LoginAsync(command.Email, command.Password);
             return Json(user);
-           
+
         }
-        
-        
+
+
     }
-   
+
 }
