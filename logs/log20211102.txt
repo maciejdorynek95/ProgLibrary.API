@@ -744,3 +744,366 @@ WHERE "a"."RoleId" = @__role_Id_0
 2021-11-02 09:54:03.025 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API) in 886.9624ms
 2021-11-02 09:54:03.025 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
 2021-11-02 09:54:03.026 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Account/Browse - - - 200 - application/json;+charset=utf-8 893.9923ms
+2021-11-02 19:47:19.477 +01:00 [INF] Staring Api
+2021-11-02 19:47:24.830 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-02 19:47:25.710 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-02 19:47:25.710 +01:00 [INF] Hosting environment: Development
+2021-11-02 19:47:25.710 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-11-02 19:47:25.849 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-11-02 19:47:26.008 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-11-02 19:47:26.015 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 172.8301ms
+2021-11-02 19:47:26.231 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 223.1146ms
+2021-11-02 19:47:26.306 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-11-02 19:47:26.306 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-11-02 19:47:26.338 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-11-02 19:47:26.413 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-11-02 19:47:26.413 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-11-02 19:47:26.424 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-11-02 19:47:26.427 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 120.6972ms
+2021-11-02 19:47:26.436 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 97.5925ms
+2021-11-02 19:47:26.465 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 158.9563ms
+2021-11-02 19:47:27.822 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-11-02 19:47:27.999 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 177.1845ms
+2021-11-02 19:47:49.628 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 -
+2021-11-02 19:47:49.918 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-11-02 19:47:49.967 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-02 19:47:51.399 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-02 19:47:52.059 +01:00 [INF] Executed DbCommand (25ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-11-02 19:47:52.288 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-02 19:47:52.325 +01:00 [INF] Dane Logowania Poprawne
+2021-11-02 19:47:52.332 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-02 19:47:52.599 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-11-02 19:47:52.618 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 2645.5675ms
+2021-11-02 19:47:52.620 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-11-02 19:47:52.634 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 3005.4015ms
+2021-11-02 19:51:08.551 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get - -
+2021-11-02 19:51:08.676 +01:00 [INF] Successfully validated the token.
+2021-11-02 19:51:08.694 +01:00 [INF] Authorization was successful.
+2021-11-02 19:51:08.695 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-11-02 19:51:08.702 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.String) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-11-02 19:51:08.813 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-02 19:51:08.823 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2021-11-02 19:51:08.858 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.889 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.890 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.892 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.893 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.893 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.893 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.894 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.894 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.895 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.896 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.896 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.897 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.897 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.900 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.901 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.902 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.902 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.903 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.903 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.903 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.904 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.904 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.905 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.905 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.906 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:08.909 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.BookDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-02 19:51:08.932 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 229.65ms
+2021-11-02 19:51:08.932 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-11-02 19:51:08.956 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get - - - 200 - application/json;+charset=utf-8 404.9787ms
+2021-11-02 19:51:11.012 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - -
+2021-11-02 19:51:11.017 +01:00 [INF] Successfully validated the token.
+2021-11-02 19:51:11.021 +01:00 [INF] Authorization was successful.
+2021-11-02 19:51:11.022 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-11-02 19:51:11.026 +01:00 [INF] Route matched with {action = "GetReservations", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] GetReservations() on controller ProgLibrary.API.Controllers.ReservationsController (ProgLibrary.API).
+2021-11-02 19:51:11.056 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-02 19:51:11.061 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:11.064 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.ReservationDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-02 19:51:11.069 +01:00 [INF] Executed action ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API) in 42.96ms
+2021-11-02 19:51:11.073 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-11-02 19:51:11.078 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - - - 200 - application/json;+charset=utf-8 66.0097ms
+2021-11-02 19:51:13.247 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Account/Browse - -
+2021-11-02 19:51:13.256 +01:00 [INF] Successfully validated the token.
+2021-11-02 19:51:13.257 +01:00 [INF] Authorization was successful.
+2021-11-02 19:51:13.258 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
+2021-11-02 19:51:13.262 +01:00 [INF] Route matched with {action = "Browse", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Browse() on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-02 19:51:16.171 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-02 19:51:16.184 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2021-11-02 19:51:16.217 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2021-11-02 19:51:16.225 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.AccountDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-02 19:51:16.227 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API) in 2965.5535ms
+2021-11-02 19:51:16.228 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
+2021-11-02 19:51:16.228 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Account/Browse - - - 200 - application/json;+charset=utf-8 2981.3704ms
+2021-11-02 19:51:20.424 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - -
+2021-11-02 19:51:20.426 +01:00 [INF] Successfully validated the token.
+2021-11-02 19:51:20.426 +01:00 [INF] Authorization was successful.
+2021-11-02 19:51:20.426 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-11-02 19:51:20.427 +01:00 [INF] Route matched with {action = "GetReservations", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] GetReservations() on controller ProgLibrary.API.Controllers.ReservationsController (ProgLibrary.API).
+2021-11-02 19:51:20.428 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-02 19:51:20.437 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:20.439 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.ReservationDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-02 19:51:20.440 +01:00 [INF] Executed action ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API) in 13.4234ms
+2021-11-02 19:51:20.440 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.ReservationsController.GetReservations (ProgLibrary.API)'
+2021-11-02 19:51:20.442 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Reservations/GetReservations - - - 200 - application/json;+charset=utf-8 18.1707ms
+2021-11-02 19:51:22.492 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get - -
+2021-11-02 19:51:22.496 +01:00 [INF] Successfully validated the token.
+2021-11-02 19:51:22.497 +01:00 [INF] Authorization was successful.
+2021-11-02 19:51:22.498 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-11-02 19:51:22.498 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.String) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-11-02 19:51:22.500 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-02 19:51:22.503 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2021-11-02 19:51:22.503 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.504 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.504 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.505 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.505 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.506 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.506 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.506 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.507 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.507 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.508 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.508 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.508 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.509 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.509 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.509 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.510 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.510 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.510 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.511 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.514 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.515 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.517 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.518 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.518 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.521 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:22.522 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.BookDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-02 19:51:22.524 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 25.7444ms
+2021-11-02 19:51:22.524 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-11-02 19:51:22.559 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get - - - 200 - application/json;+charset=utf-8 67.1096ms
+2021-11-02 19:51:28.421 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Books/Get - -
+2021-11-02 19:51:28.422 +01:00 [INF] Successfully validated the token.
+2021-11-02 19:51:28.422 +01:00 [INF] Authorization was successful.
+2021-11-02 19:51:28.423 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-11-02 19:51:28.423 +01:00 [INF] Route matched with {action = "Get", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.String) on controller ProgLibrary.API.Controllers.BooksController (ProgLibrary.API).
+2021-11-02 19:51:28.428 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'LibraryDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-02 19:51:28.431 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Description", "b"."ReleaseDate", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2021-11-02 19:51:28.432 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.433 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.433 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.433 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.434 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.434 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.435 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.435 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.435 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.436 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.440 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.441 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.442 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.443 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.444 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.444 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.445 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.445 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.445 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.446 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.446 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.447 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.447 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.447 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.448 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.448 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "r"."Id", "r"."BookId", "r"."CreatedAt", "r"."ReservationTimeFrom", "r"."ReservationTimeTo", "r"."UserId"
+FROM "Reservations" AS "r"
+2021-11-02 19:51:28.450 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.BookDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-02 19:51:28.451 +01:00 [INF] Executed action ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API) in 27.9389ms
+2021-11-02 19:51:28.451 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.BooksController.Get (ProgLibrary.API)'
+2021-11-02 19:51:28.452 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Books/Get - - - 200 - application/json;+charset=utf-8 30.8216ms

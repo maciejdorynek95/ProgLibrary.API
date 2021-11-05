@@ -4,6 +4,7 @@ using ProgLibrary.Infrastructure.Commands.Books;
 using ProgLibrary.Infrastructure.Exceptions;
 using ProgLibrary.Infrastructure.Services;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
@@ -19,7 +20,7 @@ namespace ProgLibrary.API.Controllers
         }
 
         [HttpGet("Get/{bookId}")]
-        [Authorize(Policy = "HasUserRole")]
+        [Authorize("HasUserRole")]
         public async Task<JsonResult> Get(Guid bookId)
         {
             var books = await _bookService.GetAsync(bookId);
@@ -32,7 +33,7 @@ namespace ProgLibrary.API.Controllers
 
 
         [HttpGet("Get")]
-        [Authorize(Policy = "HasUserRole")]
+        [Authorize("HasUserRole")]
         public async Task<JsonResult> Get(string title)
         {
             var books = await _bookService.BrowseAsync(title);
@@ -41,7 +42,7 @@ namespace ProgLibrary.API.Controllers
 
 
         [HttpPost("Create")]
-        [Authorize(Policy = "HasUserRole")]
+        [Authorize("HasUserRole")]
         public async Task<JsonResult> Create([FromBody] CreateBook command)
         {
             var result = await Task.FromResult( _bookService.CreateAsync(Guid.NewGuid(), command.Title, command.Author, command.ReleaseDate, command.Description));
@@ -55,7 +56,7 @@ namespace ProgLibrary.API.Controllers
 
 
         [HttpPut("Update/{id}")]
-        [Authorize(Policy = "HasAdminRole")]
+        [Authorize("HasAdminRole")]
         public async Task<JsonResult> Update(Guid id, [FromBody] UpdateBook command)
         {
             var result = await Task.FromResult(_bookService.UpdateAsync(id, command.Title, command.Author, command.ReleaseDate, command.Description));
@@ -65,14 +66,27 @@ namespace ProgLibrary.API.Controllers
 
 
 
-        [HttpDelete("{bookId}")]
-        [Authorize(Policy = "HasAdminRole")]
-        public async Task<JsonResult> Delete(Guid bookId)
+        [HttpDelete("Delete/{bookId}")]
+        [Authorize("HasAdminRole")]
+        public async Task<HttpResponseMessage> Delete(Guid bookId)
         {
-            var result = await Task.FromResult(_bookService.DeleteAsync(bookId));
+            var response = new HttpResponseMessage();
+            try
+            {
+                var result = await Task.FromResult(_bookService.DeleteAsync(bookId));
+                Response.StatusCode = result.Result;
+                
+            }
+            catch (Exception)
+            {
 
-            //204
-            return Json(result);
+                throw;
+            }
+
+            return response;
+
+
+
 
 
 
