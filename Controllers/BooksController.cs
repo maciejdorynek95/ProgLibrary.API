@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProgLibrary.Infrastructure.Commands.Books;
 using ProgLibrary.Infrastructure.Exceptions;
@@ -45,12 +46,18 @@ namespace ProgLibrary.API.Controllers
         [Authorize("HasUserRole")]
         public async Task<JsonResult> Create([FromBody] CreateBook command)
         {
-            var result = await Task.FromResult( _bookService.CreateAsync(Guid.NewGuid(), command.Title, command.Author, command.ReleaseDate, command.Description));
-            if (result.Result > 0 )
-            {
-                return Json($"Utworzono pomyślnie książkę ");
+            if (ModelState.IsValid)
+            {            
+                var result = await _bookService.CreateAsync(Guid.NewGuid(), command.Title, command.Author, command.ReleaseDate, command.Description);
+                if (result)
+                {
+                    return Json($"Utworzono pomyślnie książkę ");
+                }
+                    return Json($"Błąd tworzenia książki");
             }
-            return Json(result, null);
+            return Json("Błąd tworzenia książki", null);
+            
+           
         }
 
 
@@ -68,23 +75,18 @@ namespace ProgLibrary.API.Controllers
 
         [HttpDelete("Delete/{bookId}")]
         [Authorize("HasAdminRole")]
-        public async Task<HttpResponseMessage> Delete(Guid bookId)
+        public async Task<HttpResponse> Delete(Guid bookId)
         {
-            var response = new HttpResponseMessage();
-            try
+           
+            var result = await _bookService.DeleteAsync(bookId);
+            if (result)
             {
-                var result = await Task.FromResult(_bookService.DeleteAsync(bookId));
-                Response.StatusCode = result.Result;
-                
-            }
-            catch (Exception)
-            {
-
-                throw;
+                 Response.Headers.Add("DeleteMessage","Usunięto pomyślnie książkę o id:" + bookId);
+                return Response;
             }
 
-            return response;
-
+            Response.Headers.Add("DeleteMessage", "Błąd usuwania");
+            return Response;
 
 
 

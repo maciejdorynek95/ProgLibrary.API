@@ -1,0 +1,308 @@
+2021-11-05 20:20:02.725 +01:00 [INF] Staring Api
+2021-11-05 20:20:07.077 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-05 20:20:09.118 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-05 20:20:09.119 +01:00 [INF] Hosting environment: Development
+2021-11-05 20:20:09.119 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-11-05 20:20:09.584 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-11-05 20:20:09.782 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 204.8304ms
+2021-11-05 20:20:09.805 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-11-05 20:20:10.167 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 362.9841ms
+2021-11-05 20:20:11.365 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-11-05 20:20:11.432 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-11-05 20:20:11.441 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 75.3234ms
+2021-11-05 20:20:11.820 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-11-05 20:20:11.845 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-11-05 20:20:11.880 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 60.9042ms
+2021-11-05 20:20:11.950 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-11-05 20:20:11.967 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-11-05 20:20:11.983 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 32.2532ms
+2021-11-05 20:20:14.628 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-11-05 20:20:14.682 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/favicon-32x32.png - -
+2021-11-05 20:20:14.683 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-11-05 20:20:14.685 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/favicon-32x32.png - - - 200 628 image/png 2.6992ms
+2021-11-05 20:20:14.973 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 345.0315ms
+2021-11-05 20:21:43.598 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 -
+2021-11-05 20:21:43.853 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-11-05 20:21:43.902 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-05 20:21:45.099 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-05 20:21:45.678 +01:00 [INF] Executed DbCommand (23ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-11-05 20:21:45.902 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-05 20:21:45.937 +01:00 [INF] Dane Logowania Poprawne
+2021-11-05 20:21:45.944 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-05 20:21:46.192 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-11-05 20:21:46.209 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 2300.2102ms
+2021-11-05 20:21:46.210 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-11-05 20:21:46.216 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2617.9903ms
+2021-11-05 20:21:57.242 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Account/Browse - -
+2021-11-05 20:21:57.365 +01:00 [INF] Successfully validated the token.
+2021-11-05 20:21:57.381 +01:00 [INF] Authorization was successful.
+2021-11-05 20:21:57.382 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
+2021-11-05 20:21:57.386 +01:00 [INF] Route matched with {action = "Browse", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Browse() on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-05 20:21:57.436 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-05 20:21:57.448 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2021-11-05 20:21:57.479 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2021-11-05 20:21:57.498 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.AccountDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-05 20:21:57.504 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API) in 116.9684ms
+2021-11-05 20:21:57.504 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
+2021-11-05 20:21:57.505 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Account/Browse - - - 200 - application/json;+charset=utf-8 262.6026ms
+2021-11-05 20:33:49.986 +01:00 [INF] Staring Api
+2021-11-05 20:33:53.301 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-05 20:33:53.942 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-05 20:33:53.942 +01:00 [INF] Hosting environment: Development
+2021-11-05 20:33:53.943 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-11-05 20:33:54.039 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-11-05 20:33:54.318 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 280.6018ms
+2021-11-05 20:33:54.562 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-11-05 20:33:54.804 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 249.9970ms
+2021-11-05 20:33:55.149 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-11-05 20:33:55.180 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-11-05 20:33:55.281 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-11-05 20:33:55.281 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-11-05 20:33:55.289 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 140.0825ms
+2021-11-05 20:33:55.332 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 151.6758ms
+2021-11-05 20:33:55.349 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-11-05 20:33:55.355 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-11-05 20:33:55.367 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 18.2315ms
+2021-11-05 20:33:58.336 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-11-05 20:33:58.958 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 621.9098ms
+2021-11-05 20:52:42.420 +01:00 [INF] Staring Api
+2021-11-05 20:52:45.469 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-05 20:52:45.894 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-05 20:52:45.896 +01:00 [INF] Hosting environment: Development
+2021-11-05 20:52:45.896 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-11-05 20:52:45.964 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-11-05 20:52:46.062 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-11-05 20:52:46.078 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 115.4500ms
+2021-11-05 20:52:46.247 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 185.4333ms
+2021-11-05 20:52:46.312 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-11-05 20:52:46.330 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-11-05 20:52:46.381 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-11-05 20:52:46.391 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-11-05 20:52:46.391 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-11-05 20:52:46.400 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-11-05 20:52:46.408 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 95.0923ms
+2021-11-05 20:52:46.415 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 33.6654ms
+2021-11-05 20:52:46.439 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 109.5020ms
+2021-11-05 20:52:47.417 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-11-05 20:52:47.868 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 451.6361ms
+2021-11-05 21:48:08.284 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 -
+2021-11-05 21:48:08.463 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-11-05 21:48:08.508 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-05 21:48:09.658 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-05 21:48:10.164 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-11-05 21:48:10.398 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-05 21:48:10.448 +01:00 [INF] Dane Logowania Poprawne
+2021-11-05 21:48:10.457 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-05 21:48:10.676 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-11-05 21:48:10.693 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 2176.259ms
+2021-11-05 21:48:10.695 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-11-05 21:48:10.703 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44336/api/Account/Login application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2418.8775ms
+2021-11-05 21:48:29.980 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Account/Browse - -
+2021-11-05 21:48:30.098 +01:00 [INF] Successfully validated the token.
+2021-11-05 21:48:30.119 +01:00 [INF] Authorization was successful.
+2021-11-05 21:48:30.123 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
+2021-11-05 21:48:30.126 +01:00 [INF] Route matched with {action = "Browse", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Browse() on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-05 21:48:30.179 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-05 21:48:30.196 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2021-11-05 21:48:30.226 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2021-11-05 21:48:30.246 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.AccountDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-05 21:48:30.251 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API) in 124.7961ms
+2021-11-05 21:48:30.251 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
+2021-11-05 21:48:30.253 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Account/Browse - - - 200 - application/json;+charset=utf-8 272.5542ms
+2021-11-05 21:48:32.100 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44336/api/Account/GetById - -
+2021-11-05 21:48:32.107 +01:00 [INF] Successfully validated the token.
+2021-11-05 21:48:32.107 +01:00 [INF] Authorization was successful.
+2021-11-05 21:48:32.108 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API)'
+2021-11-05 21:48:32.114 +01:00 [INF] Route matched with {action = "Get", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get(System.Guid) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-05 21:48:32.147 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-05 21:48:32.158 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__id_0
+LIMIT 2
+2021-11-05 21:48:32.428 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API) in 314.0782ms
+2021-11-05 21:48:32.429 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Get (ProgLibrary.API)'
+2021-11-05 21:48:32.433 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: użytkownik o id 00000000-0000-0000-0000-000000000000 nie istenieje
+   at ProgLibrary.Infrastructure.Repositories.UserRepository.GetAsync(Guid id) in C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.Infrastructure\Repositories\UserRepository.cs:line 32
+   at ProgLibrary.Infrastructure.Services.UserService.GetAccountAsync(Guid userId) in C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.Infrastructure\Services\UserService.cs:line 44
+   at ProgLibrary.API.Controllers.AccountController.Get(Guid userId) in C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\Controllers\AccountController.cs:line 33
+   at lambda_method183(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-11-05 21:48:32.566 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44336/api/Account/GetById - - - 500 - text/plain 465.2647ms
+2021-11-05 21:50:06.664 +01:00 [INF] Staring Api
+2021-11-05 21:50:10.094 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-05 21:50:10.754 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-05 21:50:10.754 +01:00 [INF] Hosting environment: Development
+2021-11-05 21:50:10.755 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API
+2021-11-05 21:50:10.906 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger - -
+2021-11-05 21:50:11.065 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/index.html - -
+2021-11-05 21:50:11.066 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger - - - 301 - - 163.9196ms
+2021-11-05 21:50:11.311 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/index.html - - - 200 - text/html;charset=utf-8 245.3930ms
+2021-11-05 21:50:11.401 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - -
+2021-11-05 21:50:11.402 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - -
+2021-11-05 21:50:11.402 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - -
+2021-11-05 21:50:11.509 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-11-05 21:50:11.509 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-11-05 21:50:11.509 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-11-05 21:50:11.526 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui.css - - - 200 143632 text/css 125.7357ms
+2021-11-05 21:50:11.531 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 128.5541ms
+2021-11-05 21:50:11.567 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 164.8549ms
+2021-11-05 21:50:13.399 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - -
+2021-11-05 21:50:14.114 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 715.1851ms
+2021-11-05 21:50:27.235 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/api/Account/Browse - -
+2021-11-05 21:50:27.413 +01:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (admin)
+2021-11-05 21:50:27.419 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2021-11-05 21:50:27.421 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/api/Account/Browse - - - 401 - - 186.7683ms
+2021-11-05 21:50:45.473 +01:00 [INF] Request starting HTTP/2 POST https://localhost:44336/api/Account/Login application/json 74
+2021-11-05 21:50:45.493 +01:00 [INF] No CORS policy found for the specified request.
+2021-11-05 21:50:45.497 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-11-05 21:50:45.553 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Login(ProgLibrary.Infrastructure.Commands.User.Login) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-05 21:50:46.809 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-05 21:50:47.342 +01:00 [INF] Executed DbCommand (23ms) [Parameters=[@__email_0='?' (Size = 25)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Email" = @__email_0
+LIMIT 1
+2021-11-05 21:50:47.598 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-05 21:50:47.631 +01:00 [INF] Dane Logowania Poprawne
+2021-11-05 21:50:47.637 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-05 21:50:47.843 +01:00 [INF] Executing JsonResult, writing value of type 'ProgLibrary.Infrastructure.DTO.TokenDto'.
+2021-11-05 21:50:47.859 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API) in 2299.4649ms
+2021-11-05 21:50:47.859 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Login (ProgLibrary.API)'
+2021-11-05 21:50:47.869 +01:00 [INF] Request finished HTTP/2 POST https://localhost:44336/api/Account/Login application/json 74 - 200 - application/json;+charset=utf-8 2395.1995ms
+2021-11-05 21:51:02.442 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44336/api/Account/Browse - -
+2021-11-05 21:51:02.558 +01:00 [INF] Successfully validated the token.
+2021-11-05 21:51:02.560 +01:00 [INF] Authorization was successful.
+2021-11-05 21:51:02.560 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
+2021-11-05 21:51:02.565 +01:00 [INF] Route matched with {action = "Browse", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Browse() on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-05 21:51:02.610 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-05 21:51:02.623 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2021-11-05 21:51:02.655 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2021-11-05 21:51:02.677 +01:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[ProgLibrary.Infrastructure.DTO.AccountDto, ProgLibrary.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-05 21:51:02.683 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API) in 118.1503ms
+2021-11-05 21:51:02.683 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Browse (ProgLibrary.API)'
+2021-11-05 21:51:02.684 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44336/api/Account/Browse - - - 200 - application/json;+charset=utf-8 241.8224ms
+2021-11-05 21:51:13.846 +01:00 [INF] Request starting HTTP/2 DELETE https://localhost:44336/api/Account/Delete?userId=58cf4e99-c6c8-4d2f-8377-9f3966dae181 - -
+2021-11-05 21:51:13.848 +01:00 [INF] Successfully validated the token.
+2021-11-05 21:51:13.856 +01:00 [INF] Authorization was successful.
+2021-11-05 21:51:13.857 +01:00 [INF] No CORS policy found for the specified request.
+2021-11-05 21:51:13.857 +01:00 [INF] Executing endpoint 'ProgLibrary.API.Controllers.AccountController.Delete (ProgLibrary.API)'
+2021-11-05 21:51:13.862 +01:00 [INF] Route matched with {action = "Delete", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Delete(System.Guid) on controller ProgLibrary.API.Controllers.AccountController (ProgLibrary.API).
+2021-11-05 21:51:31.351 +01:00 [INF] Entity Framework Core 5.0.11 initialized 'AuthenticationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: MigrationsAssembly=ProgLibrary.Core 
+2021-11-05 21:51:31.374 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__id_0
+LIMIT 2
+2021-11-05 21:51:41.595 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2021-11-05 21:52:08.343 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "AspNetUsers"
+WHERE "Id" = @p0 AND "ConcurrencyStamp" = @p1;
+SELECT changes();
+2021-11-05 21:52:19.012 +01:00 [INF] Executed action ProgLibrary.API.Controllers.AccountController.Delete (ProgLibrary.API) in 65146.5237ms
+2021-11-05 21:52:19.013 +01:00 [INF] Executed endpoint 'ProgLibrary.API.Controllers.AccountController.Delete (ProgLibrary.API)'
+2021-11-05 21:52:19.016 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: Exception of type 'System.Exception' was thrown.
+   at ProgLibrary.Infrastructure.Services.UserService.DeleteAsync(Guid userId) in C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.Infrastructure\Services\UserService.cs:line 155
+   at ProgLibrary.API.Controllers.AccountController.Delete(Guid userId) in C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\Controllers\AccountController.cs:line 66
+   at lambda_method183(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-11-05 21:52:19.096 +01:00 [INF] Request finished HTTP/2 DELETE https://localhost:44336/api/Account/Delete?userId=58cf4e99-c6c8-4d2f-8377-9f3966dae181 - - - 500 - text/plain 65246.1764ms
+2021-11-05 21:57:16.813 +01:00 [INF] Staring Api
+2021-11-05 21:57:21.351 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.

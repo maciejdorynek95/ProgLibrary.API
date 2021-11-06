@@ -34,7 +34,7 @@ namespace ProgLibrary.API.Controllers
         [Authorize("HasUserRole")]
         [Route("[Action]")]
         public async Task<JsonResult> Create ([FromBody]CreateReservation command)
-        => Json(await Task.FromResult(_reservationService.CreateAsync(Guid.NewGuid(), command.UserId, command.BookId, command.ReservationTimeFrom, command.ReservationTimeTo)));
+        => Json(await _reservationService.CreateAsync(Guid.NewGuid(), command.UserId, command.BookId, command.ReservationTimeFrom, command.ReservationTimeTo));
 
 
     }

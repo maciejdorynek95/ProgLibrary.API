@@ -11,7 +11,7 @@ namespace ProgLibrary.API.Controllers
     [Route("api/[controller]")]
     public class AccountController : ApiControllerBase
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
         public AccountController(IUserService userService)
         {
             _userService = userService;
@@ -28,13 +28,13 @@ namespace ProgLibrary.API.Controllers
         => Json(await _userService.BrowseAsync("user"));
 
         [Authorize("HasUserRole")]
-        [HttpGet("GetById")]
-        public async Task<JsonResult> Get(Guid userId)
+        [HttpGet("GetById/{userId}")]
+        public async Task<JsonResult> GetById(Guid userId)
         => Json(await _userService.GetAccountAsync(userId));
 
         [Authorize("HasUserRole")]
         [HttpGet("GetByEmail")]
-        public async Task<JsonResult> Get(string userEmail)
+        public async Task<JsonResult> GetByEmail(string userEmail)
         => Json(await _userService.GetAccountAsync(userEmail));
 
         [Authorize("HasUserRole")]
@@ -46,8 +46,8 @@ namespace ProgLibrary.API.Controllers
         [HttpPost("Register")]
         public async Task<JsonResult> Register([FromBody] Register command)
         {
-            await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.UserName, command.Password);
-            return Json(Created($"/Account/{command.Email}", "Utworzono"));
+            var result = await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.Password);
+            return Json(result);
         }
 
         [AllowAnonymous]
@@ -59,6 +59,14 @@ namespace ProgLibrary.API.Controllers
 
         }
 
+        [Authorize("HasAdminRole")]
+        [HttpDelete("Delete/{userId}")]
+        public async Task<JsonResult> Delete(Guid userId)
+        {
+            var result = await _userService.DeleteAsync(userId);
+            return Json(result);
+
+        }
 
     }
 
