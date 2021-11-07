@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProgLibrary.Infrastructure.Commands.Books;
-using ProgLibrary.Infrastructure.Exceptions;
 using ProgLibrary.Infrastructure.Services;
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ProgLibrary.API.Controllers
@@ -15,9 +13,9 @@ namespace ProgLibrary.API.Controllers
     public class BooksController : Controller
     {
         private readonly IBookService _bookService;
-        public BooksController(IBookService eventService)
+        public BooksController(IBookService bookService)
         {
-            _bookService = eventService;
+            _bookService = bookService;
         }
 
         [HttpGet("Get/{bookId}")]
@@ -43,21 +41,20 @@ namespace ProgLibrary.API.Controllers
 
 
         [HttpPost("Create")]
-        [Authorize("HasUserRole")]
+        //[Authorize("HasUserRole")]
         public async Task<JsonResult> Create([FromBody] CreateBook command)
         {
             if (ModelState.IsValid)
-            {            
-                var result = await _bookService.CreateAsync(Guid.NewGuid(), command.Title, command.Author, command.ReleaseDate, command.Description);
+            {
+                var result = await _bookService.CreateAsync(command.Id, command.Title, command.Author, command.ReleaseDate, command.Description);
                 if (result)
                 {
-                    return Json($"Utworzono pomyślnie książkę ");
+                    return Json($"Utworzono pomyślnie książkę o Id: {command.Id}");
                 }
-                    return Json($"Błąd tworzenia książki");
             }
             return Json("Błąd tworzenia książki", null);
-            
-           
+
+
         }
 
 
@@ -77,11 +74,11 @@ namespace ProgLibrary.API.Controllers
         [Authorize("HasAdminRole")]
         public async Task<HttpResponse> Delete(Guid bookId)
         {
-           
+
             var result = await _bookService.DeleteAsync(bookId);
             if (result)
             {
-                 Response.Headers.Add("DeleteMessage","Usunięto pomyślnie książkę o id:" + bookId);
+                Response.Headers.Add("DeleteMessage", "Usunięto pomyślnie książkę o id:" + bookId);
                 return Response;
             }
 

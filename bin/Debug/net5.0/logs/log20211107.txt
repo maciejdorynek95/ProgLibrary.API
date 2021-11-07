@@ -1,0 +1,8 @@
+2021-11-07 17:01:55.335 +01:00 [INF] Staring Api
+2021-11-07 17:01:56.194 +01:00 [INF] User profile is available. Using 'C:\Users\dorynekm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-07 17:01:56.565 +01:00 [INF] Now listening on: https://localhost:5000
+2021-11-07 17:01:56.566 +01:00 [INF] Now listening on: https://localhost:44336
+2021-11-07 17:01:56.569 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-07 17:01:56.570 +01:00 [INF] Hosting environment: Production
+2021-11-07 17:01:56.571 +01:00 [INF] Content root path: C:\Users\dorynekm\source\repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0
+2021-11-07 17:22:45.951 +01:00 [INF] Application is shutting down...

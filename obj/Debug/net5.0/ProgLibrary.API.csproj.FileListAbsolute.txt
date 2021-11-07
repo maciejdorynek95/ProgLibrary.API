@@ -268,15 +268,3 @@ C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\
 C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.RazorTargetAssemblyInfo.cs
 C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\ProgLibrary.API.Views.pdb
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\Razor\Views\TESTUsers\Create.cshtml.g.cs
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\Razor\Views\TESTUsers\Delete.cshtml.g.cs
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\Razor\Views\TESTUsers\Details.cshtml.g.cs
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\Razor\Views\TESTUsers\Edit.cshtml.g.cs
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\obj\Debug\net5.0\Razor\Views\TESTUsers\Index.cshtml.g.cs
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\System.Web.Mvc.dll
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\System.Web.Razor.dll
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\System.Web.Helpers.dll
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\System.Web.WebPages.dll
-C:\Users\dorynekm\Source\Repos\maciejdorynek95\ProgLibrary.API\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll

@@ -61,8 +61,8 @@ namespace ProgLibrary.API
 
 
             #region DBContext
-            services.AddDbContext<AuthenticationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("LibraryDBContext"), options => options.MigrationsAssembly("ProgLibrary.Core")));
-            services.AddDbContext<LibraryDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("LibraryDBContext"), options => options.MigrationsAssembly("ProgLibrary.Core")));
+            services.AddDbContext<AuthenticationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("LibraryDBContext"), options => options.MigrationsAssembly("ProgLibrary.Core")),ServiceLifetime.Scoped);
+            services.AddDbContext<LibraryDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("LibraryDBContext"), options => options.MigrationsAssembly("ProgLibrary.Core")),ServiceLifetime.Scoped);
             #endregion
 
             services.AddSingleton<IMemoryCache, MemoryCache>();
